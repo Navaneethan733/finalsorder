@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stackly - About Us</title>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url("./set-of-restaurant-doodles-food-and-drinks-on-white-background-vector.jpg") no-repeat center center/cover;
+      color: #000;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Overlay for readability */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.85);
+      z-index: -1;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(0, 0, 0, 0.95);
+      color: #fff;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .nav-links li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s;
+    }
+    .nav-links li a:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #ffcc00;
+      transition: width 0.3s ease;
+    }
+    .nav-links li a:hover:after {
+      width: 100%;
+    }
+    .nav-links li a:hover {
+      color: #ffcc00;
+    }
+
+    /* About Section */
+    .about {
+      padding: 8rem 10% 4rem; 
+       background: rgba(0, 0, 0, 0.7);/* extra padding for navbar */
+    }
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+    }
+    .about-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 15px;
+      background:  rgb(255, 255, 255);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    .about-image img:hover {
+      transform: scale(1.05);
+    }
+    .about-text {
+      flex: 1;
+    }
+    .about-text h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+    .about-text span {
+      color: #ffcc00;
+    }
+    .about-text p {
+      padding: 1rem;
+      color: #ffffff;
+      background-color: rgba(0,0,0,0.05);
+      border-radius: 8px;
+    }
+    .about-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 12px 28px;
+      background: #ffcc00;
+      color: #000;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .about-btn:hover {
+      background: #fff;
+      color: #000;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Chef Section */
+    .chef-section {
+      margin-top: 5rem;
+      padding: 3rem 10%;
+      text-align: center;
+       background: rgba(0, 0, 0, 0.7);
+    }
+    .chef-section h3 {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: white;
+    }
+    .chef-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .chef-card {
+      background: #ffcc00;
+      padding: 1rem;
+      border-radius: 10px;
+      width: 220px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    .chef-card:hover {
+      transform: translateY(-5px);
+    }
+    .chef-card img {
+      width: 100%;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    /* Testimonials */
+  /* Testimonials */
+.testimonials {
+  margin-top: 5rem;
+  padding: 3rem 10%;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.testimonials h3 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #000;
+}
+
+.testimonial-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background: #ffcc00;
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 280px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  font-style: italic;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #000;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.testimonial-card h4 {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+    /* Footer */
+ 
+    .footer-bottom {
+      display: flex;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.7);
+      margin-top: 20px;
+      font-size: 14px;
+      border-top: 1px solid #333;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <a class="logo" href="./index.html">Stackly</a>
+  <ul class="nav-links">
+    <li><a href="./page2.html">Home</a></li>
+    <li><a href="./404.html">Menu</a></li>
+    <li><a href="./about.html">About</a></li>
+    <li><a href="./signup.html">Sign In</a></li>
+  </ul>
+</nav>
+
+<!-- About -->
+<section class="about">
+  <div class="about-container">
+    <div class="about-image" data-aos="fade-right">
+      <img src="./Icons/images-removebg-preview.png" alt="About Stackly">
+    </div>
+    <div class="about-text" data-aos="fade-left">
+      <h2>About <span>Stackly</span></h2>
+      <p>At <strong>Stackly</strong>, we believe every meal should be a celebration. Experience the taste of authentic cuisine, served with love and excellence. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni doloremque suscipit, aut libero temporibus, harum explicabo dolorem, laborum veritatis illo quidem? Beatae obcaecati autem suscipit esse doloremque delectus, dolores repellat laboriosam dolor quam officiis accusamus atque incidunt qui id in, consectetur temporibus laborum rerum ipsa eligendi hic nihil. Accusamus minus dolorum ipsam itaque voluptatem recusandae odio cumque? Sed maiores incidunt expedita. Nam mollitia voluptate atque! Iure, dicta a aspernatur optio sit dolores reiciendis ratione amet non corrupti architecto voluptas nemo quod voluptate minus ad obcaecati, perspiciatis suscipit accusamus, sunt voluptatem tempora perferendis! Maiores, quibusdam tempora. Harum quae libero dolorum qui? We're committed to providing memorable dining experiences.From our kitchen to your table, we bring authentic flavors crafted with love and passion by our chefs.</p>
+      <a href="./404.html" class="about-btn">Explore Our Menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- Chefs -->
+<section class="chef-section">
+  <h3>Meet Our Chefs</h3>
+  <div class="chef-list">
+    <div class="chef-card" data-aos="fade-up">
+      <img src="./female-chef-14984977.webp" alt="Chef">
+      <h4>Chef Arjun Mehra</h4>
+      <p>Tandoori & Mughlai Specialist They understand the fire—how to manage the heat (often mango or sheesham wood for their fragrance) and how to control cooking by raising or lowering the grill.</p>
+    </div>
+    <div class="chef-card" data-aos="fade-up">
+      <img src="./Gordon_Ramsay.jpg.webp" alt="Chef">
+      <h4>Gordon Ramsay</h4>
+      <p>South Indian Expert Mastery of tangy, lentil-based dishes like Sambar and Rasam, and the art of making crispy, fluffy dosas and soft idlis.  mustard seeds, curry leaves, and asafoetida (hing) is crucial.</p>
+    </div>
+     <div class="chef-card" data-aos="fade-up">
+      <img src="./Screenshot 2025-08-20 154213.png" alt="Chef">
+      <h4>Adam smith</h4>
+      <p>Cooking Expert Knife Skills: Precision, speed, and safety with various cuts (julienne, brunoise, chiffonade).
+
+Mastery of Techniques: Proficiency in a wide range of methods like sautéing, roasting, braising, baking, grilling, sous-vide, tempering, and fermentation..</p>
+    </div>
+     <div class="chef-card" data-aos="fade-up">
+      <img src="./Screenshot 2025-08-20 154321.png" alt="Chef">
+      <h4>Gordon</h4>
+      <p>Mastering the "Mother Sauces": The foundation of classical French cooking are the five mother sauces:Béchamel: Milk-based white sauce.
+Velouté: White stock-based sauce (chicken, fish, or veal).
+</p>
+    </div>
+     <div class="chef-card" data-aos="fade-up">
+      <img src="./Screenshot 2025-08-20 154359.png" alt="Chef">
+      <h4>Tony</h4>
+      <p>Continental Expert The backbone of Continental cuisine is Classical French cooking. An expert in this field is first and foremost a master of the techniques codified by Auguste Escoffier.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<!-- Testimonials -->
+<section class="testimonials">
+  <h3>What Our Customers Say</h3>
+  <div class="testimonial-list">
+    <div class="testimonial-card" data-aos="fade-right">
+      <p>"Absolutely loved the Tandoori Chicken!"</p>
+      <h4>— Rahul Verma</h4>
+    </div>
+    <div class="testimonial-card" data-aos="fade-up">
+      <p>"Stackly never disappoints."</p>
+      <h4>— Anni</h4>
+    </div>
+    <div class="testimonial-card" data-aos="fade-up">
+      <p>"I love how easy it is to order and track my meals."</p>
+      <h4>— Sharma</h4>
+    </div>
+    <div class="testimonial-card" data-aos="fade-up">
+      <p>"Their customer service is top-notch and the offers are amazing."</p>
+      <h4>— Sheema</h4>
+    </div>
+    <div class="testimonial-card" data-aos="fade-up">
+      <p>"DelicioFoods never fails to satisfy my cravings."</p>
+      <h4>— Adam</h4>
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+
+<div class="footer-bottom">&copy; 2025 Stackly. All rights reserved.</div>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
+</script>
+</body>
+</html>
