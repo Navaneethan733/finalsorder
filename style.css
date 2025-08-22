@@ -375,7 +375,7 @@ a:hover {
   padding: 10px;
   background: rgba(0, 0, 0, 0.74);
   border-radius: 15px;
-  transition: border-radius 0.5s ease;
+  transition: all 0.5s ease;
   padding: 20px;
 }
 
@@ -383,6 +383,7 @@ a:hover {
   border-radius: 50px 15px 50px 15px;
   background: #ffcc00;
   color: #000;
+  cursor: pointer;
 }
 .word1:hover h2 {
   color: #000;
@@ -405,7 +406,7 @@ a:hover {
   padding: 10px;
   background: rgba(0, 0, 0, 0.74);
   border-radius: 15px;
-  transition: border-radius 0.5s ease;
+  transition: all 0.5s ease;
   padding: 20px;
   transform: translateX(4rem);
 }
@@ -414,6 +415,7 @@ a:hover {
   border-radius: 50px 15px 50px 15px;
   background: #ffcc00;
   color: #000;
+  cursor: pointer;
 }
 .word2:hover h2 {
   color: #000;
@@ -434,7 +436,7 @@ a:hover {
   padding: 10px;
   background: rgba(0, 0, 0, 0.74);
   border-radius: 15px;
-  transition: border-radius 0.5s ease;
+  transition: all 0.5s ease;
   padding: 20px;
 }
 
@@ -442,6 +444,7 @@ a:hover {
   border-radius: 50px 15px 50px 15px;
   background: #ffcc00;
   color: #000;
+  cursor: pointer;
 }
 .word3:hover h2 {
   color: #000;
@@ -462,7 +465,7 @@ a:hover {
   padding: 10px;
   background: rgba(0, 0, 0, 0.74);
   border-radius: 15px;
-  transition: border-radius 0.5s ease;
+  transition: all 0.5s ease;
   padding: 20px;
 }
 
@@ -470,6 +473,7 @@ a:hover {
   border-radius: 50px 15px 50px 15px;
   background: #ffcc00;
   color: #000;
+  cursor: pointer;
 }
 .word4:hover h2 {
   color: #000;
