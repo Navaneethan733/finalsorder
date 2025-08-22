@@ -75,11 +75,11 @@
     <p>Deal Of The Day</p>
   </div>
 
-  <div class="banner">
-    <div class="poster" data-aos="fade-right" data-aos-delay="10">
+  <div class="banner"  >
+    <div class="poster" data-aos="fade-up" data-aos-delay="30" >
       <a href=""><img src="./Banners/chicken-skewers-with-slices-sweet-peppers-dill.jpg" alt="pic1"></a>
     </div>
-    <div class="poster" data-aos="fade-left" data-aos-delay="10">
+    <div class="poster" data-aos="fade-up" data-aos-delay="30" >
       <a href=""><img src="./Banners/front-view-tasty-meat-soup-with-potatoes-greens-dark-desk-meal-meat-dish-sauce.jpg" alt="pic2"></a>
     </div>
   </div>
@@ -130,20 +130,6 @@
   document.querySelector('.nav-links').classList.toggle('show');
 }
 
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-
-
-slides[currentSlide].classList.add('active');
-
-function showNextSlide() {
-  slides[currentSlide].classList.remove('active');
-  currentSlide = (currentSlide + 1) % slides.length;
-  slides[currentSlide].classList.add('active');
-}
-
-
-setInterval(showNextSlide, 3000);
     AOS.init({
       duration: 1000,
       once: true  
