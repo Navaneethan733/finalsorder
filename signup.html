@@ -1,211 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signup - Stackly</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup - Stackly</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: url("./set-of-restaurant-doodles-food-and-drinks-on-white-background-vector.jpg") no-repeat center center/cover;
-      color: #fff;
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: url("./set-of-restaurant-doodles-food-and-drinks-on-white-background-vector.jpg")
+          no-repeat center center/cover;
+        color: #fff;
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
 
-    a {
-      color: #fff;
-      text-decoration: none;
-      transition: 0.3s;
-    }
+      a {
+        color: #fff;
+        text-decoration: none;
+        transition: 0.3s;
+      }
 
-    a:hover {
-      color: #ffcc00;
-    }
+      a:hover {
+        color: #ffcc00;
+      }
 
-    /* Navbar */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background: rgba(0, 0, 0, 0.9);
-      color: #fff;
-      z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-    }
+      /* Navbar */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: rgba(0, 0, 0, 0.9);
+        color: #fff;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      }
 
-    .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: #fff;
-    }
+      .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #fff;
+      }
 
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+      }
 
-    .nav-links li a {
-      color: #fff;
-      font-weight: 500;
-      position: relative;
-    }
+      .nav-links li a {
+        color: #fff;
+        font-weight: 500;
+        position: relative;
+      }
 
-    .nav-links li a:after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #ffcc00;
-      transition: width 0.3s ease;
-    }
+      .nav-links li a:after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #ffcc00;
+        transition: width 0.3s ease;
+      }
 
-    .nav-links li a:hover:after {
-      width: 100%;
-    }
+      .nav-links li a:hover:after {
+        width: 100%;
+      }
 
-    /* Signup box */
-    .signup-container {
-      background: #ffcc00;
-      padding: 2rem;
-      border-radius: 15px;
-      margin-top: 100px; /* navbar height */
-      width: 350px;
-      color: #000;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      animation: fadeIn .8s ease-in-out;
-    }
+      /* Signup box */
+      .signup-container {
+        background: #ffcc00;
+        padding: 2rem;
+        border-radius: 15px;
+        margin-top: 100px; /* navbar height */
+        width: 350px;
+        color: #000;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        animation: fadeIn 0.8s ease-in-out;
+      }
 
-    .signup-container h1 {
-      text-align: center;
-      margin-bottom: 0.5rem;
-      color: #000;
-    }
+      .signup-container h1 {
+        text-align: center;
+        margin-bottom: 0.5rem;
+        color: #000;
+      }
 
-    .signup-container p {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      color: #555;
-    }
+      .signup-container p {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: #555;
+      }
 
-    .input-group {
-      margin-bottom: 1rem;
-    }
+      .input-group {
+        margin-bottom: 1rem;
+      }
 
-    label {
-      font-size: 0.9rem;
-      color: #333;
-      display: block;
-      margin-bottom: 0.3rem;
-    }
+      label {
+        font-size: 0.9rem;
+        color: #333;
+        display: block;
+        margin-bottom: 0.3rem;
+      }
 
-    input {
-      width: 100%;
-      padding: 0.6rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      outline: none;
-      transition: 0.3s;
-    }
+      input {
+        width: 100%;
+        padding: 0.6rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        outline: none;
+        transition: 0.3s;
+      }
 
-    input:focus {
-      border-color: #ff6600;
-      box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
-    }
+      input:focus {
+        border-color: #ff6600;
+        box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
+      }
 
-    .btn {
-      background: #000000;
-      color: white;
-      padding: 0.7rem;
-      border: none;
-      width: 100%;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
+      .btn {
+        background: #000000;
+        color: white;
+        padding: 0.7rem;
+        border: none;
+        width: 100%;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
 
-    .btn:hover {
-      transform: scale(1.05);
-    }
+      .btn:hover {
+        transform: scale(1.05);
+      }
 
-    .login-link {
-      text-align: center;
-      margin-top: 1rem;
-      font-size: 0.9rem;
-    }
+      .login-link {
+        text-align: center;
+        margin-top: 1rem;
+        font-size: 0.9rem;
+      }
 
-    .login-link a {
-      color: #ffffff;
-      font-weight: bold;
-    }
+      .login-link a {
+        color: #ffffff;
+        font-weight: bold;
+      }
 
-    .login-link a:hover {
-      text-decoration: underline;
-    }
+      .login-link a:hover {
+        text-decoration: underline;
+      }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <a class="logo" href="./index.html">STACKLY</a>
-    <ul class="nav-links">
-      <li><a href="./index.html">Home</a></li>
-      <li><a href="./404.html">Menu</a></li>
-      <li><a href="./about.html">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="./signup.html">Sign Up</a></li>
-    </ul>
-  </nav>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <a class="logo" href="./index.html">STACKLY</a>
+      <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./404.html">Menu</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="./signup.html">Sign Up</a></li>
+      </ul>
+    </nav>
 
-  <!-- Signup box -->
-  <div class="signup-container">
-    <h1>Join Stackly</h1>
-    <p>Create your account and enjoy tasty deals!</p>
-    
-    <form action="#" method="" class="signup-form">
-      <div class="input-group">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name" required>
-      </div>
+    <!-- Signup box -->
+    <div class="signup-container">
+      <h1>Join Stackly</h1>
+      <p>Create your account and enjoy tasty deals!</p>
 
-      <div class="input-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-      </div>
+      <form action="#" method="" class="signup-form">
+        <div class="input-group">
+          <label for="name">Full Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
 
-      <div class="input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Enter a password" required>
-      </div>
+        <div class="input-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
 
-      <button type="submit" class="btn">Sign Up</button>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter a password"
+            required
+          />
+        </div>
 
-      <p class="login-link">Already have an account? <a href="login.html">Login</a></p>
-    </form>
-  </div>
-</body>
+        <button type="submit" class="btn">Sign Up</button>
+
+        <p class="login-link">
+          Already have an account? <a href="login.html">Login</a>
+        </p>
+      </form>
+    </div>
+  </body>
 </html>

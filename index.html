@@ -1,139 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Stackly</title>
-  <link rel="stylesheet" href="style.css"/>
-  <script defer src="script.js"></script>
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap" rel="stylesheet">
-  <link rel="icon" href="./Icons/images.jfif">
-</head>
-<body>
-
-  <!-- HERO -->
-  <header class="hero">
-    <nav class="navbar">
-      <a class="logo" href="./index.html"><i class="fas fa-utensils"></i> STACKLY</a>
-      <div class="search-box">
-        <input type="text" placeholder="Find your favorite dish here...">
-        <button>🔍</button>
-      </div>
-      <ul class="nav-links">
-        <li><a href="./page2.html">Home</a></li>
-        <li><a href="./404.html">Menu</a></li>
-        <li><a href="./about.html">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="./signup.html">Sign Up</a></li>
-      </ul>
-      <div class="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </nav>
-
-    <div class="hero-content">
-      <h1>Spice Up Your Cravings</h1>
-      <p>Delicious Indian food delivered hot & fresh to your doorstep!</p>
-    </div>
-  </header>
-
-  <!-- BUTTONS -->
-  <div class="button-wrap">
-    <button class="icon-button">
-      <img src="./Icons/Fast Delivery.svg" alt="Cart" width="20" height="20">
-      Delivery
-    </button>
-    <button class="icon-button">
-      <img src="./Icons/paper-bag.png" alt="Cart" width="20" height="20">
-      Takeaway
-    </button>
-  </div>
-
-  <!-- CENTER SCREEN -->
-  <div class="center-screen">
-    <div class="delivery">
-      <h4>Find your near store</h4> 
-      <p>Enter your address to see your local deals, coupons and offers</p>
-      <input type="text" placeholder="Enter your address"/>
-      <p><a href="https://www.google.com/maps?q=Your+Location+Name" target="_blank">Find my current location</a></p>
-    </div>
-    <div class="takeaway">
-      <h4>Collect at your near store</h4> 
-      <p>Enter your address to see your local deals, coupons and offers</p>
-      <input type="text" placeholder="Enter your address"/>
-      <p><a href="https://www.google.com/maps?q=Your+Location+Name" target="_blank">Find my current location</a></p>
-    </div>
-  </div>
-
-  <!-- DEALS -->
-  <div class="sentence">
-    <p>Deal Of The Day</p>
-  </div>
-
-  <div class="banner"  >
-    <div class="poster" data-aos="fade-up" data-aos-delay="30" >
-      <a href=""><img src="./Banners/chicken-skewers-with-slices-sweet-peppers-dill.jpg" alt="pic1"></a>
-    </div>
-    <div class="poster" data-aos="fade-up" data-aos-delay="30" >
-      <a href=""><img src="./Banners/front-view-tasty-meat-soup-with-potatoes-greens-dark-desk-meal-meat-dish-sauce.jpg" alt="pic2"></a>
-    </div>
-  </div>
-
-  <div class="viewAll-deal">
-    <a href=""><h1>Click To View All Deals</h1></a>
-  </div>
-
-  <!-- FOOTER -->
- <footer id="contact">
-    <div class="container">
-      <div class="footer-container">
-        <div class="footer-section about">
-          <h3>Stackly</h3>
-          <p>Experience the taste of authentic cuisine, served with love and excellence. We're committed to providing memorable dining experiences.</p>
-  <div class="social-icons">
-  <a href="#"><img src="./Icons/social_14047486f.png" alt="Facebook"></a>
-  <a href="#"><img src="./Icons/instagram_2626270i.png" alt="Instagram"></a>
-  <a href="#"><img src="./Icons/twitter logo.png" alt="Twitter"></a>
-  <a href="#"><img src="./Icons/youtube logo.png" alt="YouTube"></a>
-</div>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./Icons/images.jfif" />
+  </head>
+  <body>
+    <!-- HERO -->
+    <header class="hero">
+      <nav class="navbar">
+        <a class="logo" href="./index.html"
+          ><i class="fas fa-utensils"></i> STACKLY</a
+        >
+        <div class="search-box">
+          <input type="text" placeholder="Find your favorite dish here..." />
+          <button>🔍</button>
         </div>
-        <div class="footer-section contact">
-          <h4>Contact Us</h4>
-          <p><i class="fas fa-map-marker-alt"></i> 123 Spice Street, Food City, India</p>
-          <p><i class="fas fa-phone"></i> +91 9876543210</p>
-          <p><i class="fas fa-envelope"></i> Stackly@gmail.com</p>
+        <ul class="nav-links">
+          <li><a href="./page2.html">Home</a></li>
+          <li><a href="./404.html">Menu</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="./signup.html">Sign Up</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <div class="footer-section hours">
-          <h4>Opening Hours</h4>
-          <p>Monday - Friday: 11am - 10pm</p>
-          <p>Saturday - Sunday: 10am - 11pm</p>
-          <p>Holidays: 12pm - 9pm</p>
-        </div>
+      </nav>
+
+      <div class="hero-content">
+        <h1>Spice Up Your Cravings</h1>
+        <p>Delicious Indian food delivered hot & fresh to your doorstep!</p>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Stackly. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ffcc00;"></i></p>
+    </header>
+
+    <!-- BUTTONS -->
+    <div class="button-wrap">
+      <button class="icon-button">
+        <img
+          src="./Icons/Fast Delivery.svg"
+          alt="Cart"
+          width="20"
+          height="20"
+        />
+        Delivery
+      </button>
+      <button class="icon-button">
+        <img src="./Icons/paper-bag.png" alt="Cart" width="20" height="20" />
+        Takeaway
+      </button>
+    </div>
+
+    <!-- CENTER SCREEN -->
+    <div class="center-screen">
+      <div class="delivery">
+        <h4>Find your near store</h4>
+        <p>Enter your address to see your local deals, coupons and offers</p>
+        <input type="text" placeholder="Enter your address" />
+        <p>
+          <a
+            href="https://www.google.com/maps?q=Your+Location+Name"
+            target="_blank"
+            >Find my current location</a
+          >
+        </p>
+      </div>
+      <div class="takeaway">
+        <h4>Collect at your near store</h4>
+        <p>Enter your address to see your local deals, coupons and offers</p>
+        <input type="text" placeholder="Enter your address" />
+        <p>
+          <a
+            href="https://www.google.com/maps?q=Your+Location+Name"
+            target="_blank"
+            >Find my current location</a
+          >
+        </p>
       </div>
     </div>
-  </footer>
 
-  <a href="./404.html  " class="floating-order-btn">Order Now 🍽️</a>
+    <!-- DEALS -->
+    <div class="sentence">
+      <p>Deal Of The Day</p>
+    </div>
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    function toggleMenu() {
-  document.querySelector('.nav-links').classList.toggle('show');
-}
+    <div class="banner">
+      <div class="poster" data-aos="fade-up" data-aos-delay="30">
+        <a href=""
+          ><img
+            src="./Banners/chicken-skewers-with-slices-sweet-peppers-dill.jpg"
+            alt="pic1"
+        /></a>
+      </div>
+      <div class="poster" data-aos="fade-up" data-aos-delay="30">
+        <a href=""
+          ><img
+            src="./Banners/front-view-tasty-meat-soup-with-potatoes-greens-dark-desk-meal-meat-dish-sauce.jpg"
+            alt="pic2"
+        /></a>
+      </div>
+    </div>
 
-    AOS.init({
-      duration: 1000,
-      once: true  
-    });
-  </script>
-</body>
+    <div class="viewAll-deal">
+      <a href="./404.html"><h1>Click To View All Deals</h1></a>
+    </div>
+    <div class="Services">
+      <div class="our">
+        <h2>Our Services</h2>
+        <p>
+          At <strong>STACKLY</strong>, we bring the perfect blend of taste,
+          tradition, and top-quality service. Whether you’re dining in, ordering
+          out, or hosting a special event, we’ve got you covered.
+        </p>
+      </div>
+      <div class="wholeBox1">
+        <div class="imgBox1">
+          <img src="./medium-shot-woman-working-luxury-restaurant.jpg" alt="" />
+        </div>
+        <div class="word1">
+          <h2>🍴 Dine-In Experience</h2>
+          <p>
+            Step into our warm and inviting ambiance where every meal is a
+            celebration. Enjoy:
+          </p>
+          <ul>
+            ✔ A wide range of freshly prepared dishes
+          </ul>
+          <ul>
+            ✔ Comfortable seating & family-friendly atmosphere
+          </ul>
+          <ul>
+            ✔ Attentive staff to make your dining memorable
+          </ul>
+        </div>
+      </div>
+      <div class="wholeBox2">
+        <div class="imgBox2">
+          <img
+            src="./depositphotos_437048410-stock-photo-happy-smiling-black-delivery-man.jpg"
+            alt=""
+          />
+        </div>
+        <div class="word2">
+          <h2>Food Delivery</h2>
+          <p>Short on time? Grab your favorites on the go!</p>
+          <ul>
+            ✔ Quick and easy takeaway counter
+          </ul>
+          <ul>
+            ✔ Perfect packaging for hassle-free meals
+          </ul>
+          <ul>
+            ✔ Pre-order available for zero waiting
+          </ul>
+        </div>
+      </div>
+      <div class="wholeBox3">
+        <div class="imgBox3">
+          <img src="./Catering-1-1024x683.jpg" alt="" />
+        </div>
+        <div class="word3">
+          <h2>Catering & Events</h2>
+          <p>
+            Make your celebrations extra delicious with our catering services.
+          </p>
+          <ul>
+            ✔ Customizable menus for weddings, birthdays, and corporate events
+          </ul>
+          <ul>
+            ✔ Professional setup & serving staff available
+          </ul>
+          <ul>
+            ✔ Flavors that impress every guest
+          </ul>
+        </div>
+      </div>
+      <div class="wholeBox3">
+        <div class="imgBox4">
+          <img src="./SScreenshot 2025-08-22 162017.png" alt="" />
+        </div>
+        <div class="word4">
+          <h2>Special Add-ons</h2>
+          <ul>
+            ✔ Chef’s specials every week
+          </ul>
+          <ul>
+            ✔ Seasonal dishes & festive offers
+          </ul>
+          <ul>
+            ✔Membership discounts & loyalty rewards
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+      <div class="container">
+        <div class="footer-container">
+          <div class="footer-section about">
+            <h3>Stackly</h3>
+            <p>
+              Experience the taste of authentic cuisine, served with love and
+              excellence. We're committed to providing memorable dining
+              experiences.
+            </p>
+            <div class="social-icons">
+              <a href="#"
+                ><img src="./Icons/social_14047486f.png" alt="Facebook"
+              /></a>
+              <a href="#"
+                ><img src="./Icons/instagram_2626270i.png" alt="Instagram"
+              /></a>
+              <a href="#"
+                ><img src="./Icons/twitter logo.png" alt="Twitter"
+              /></a>
+              <a href="#"
+                ><img src="./Icons/youtube logo.png" alt="YouTube"
+              /></a>
+            </div>
+          </div>
+          <div class="footer-section contact">
+            <h4>Contact Us</h4>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> 123 Spice Street, Food City,
+              India
+            </p>
+            <p><i class="fas fa-phone"></i> +91 9876543210</p>
+            <p><i class="fas fa-envelope"></i> Stackly@gmail.com</p>
+          </div>
+          <div class="footer-section hours">
+            <h4>Opening Hours</h4>
+            <p>Monday - Friday: 11am - 10pm</p>
+            <p>Saturday - Sunday: 10am - 11pm</p>
+            <p>Holidays: 12pm - 9pm</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 Stackly. All rights reserved. | Designed with
+            <i class="fas fa-heart" style="color: #ffcc00"></i>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <a href="./404.html  " class="floating-order-btn">Order Now 🍽️</a>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      function toggleMenu() {
+        document.querySelector(".nav-links").classList.toggle("show");
+      }
+
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+    </script>
+  </body>
 </html>
