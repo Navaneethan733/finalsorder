@@ -46,6 +46,7 @@
       color: #fff;
       z-index: 1000;
       box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      overflow-x: hidden;
     }
     .logo {
       font-size: 1.8rem;
@@ -85,13 +86,14 @@
     /* About Section */
     .about {
       padding: 8rem 10% 4rem; 
-       background: rgba(0, 0, 0, 0.7);/* extra padding for navbar */
+      background: rgba(0, 0, 0, 0.7);
     }
     .about-container {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 2rem;
+       overflow-x: hidden;
     }
     .about-image img {
       width: 100%;
@@ -106,6 +108,7 @@
     }
     .about-text {
       flex: 1;
+      min-width: 300px;
     }
     .about-text h2 {
       font-size: 2.2rem;
@@ -144,7 +147,8 @@
       margin-top: 5rem;
       padding: 3rem 10%;
       text-align: center;
-       background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.7);
+       overflow-x: hidden;
     }
     .chef-section h3 {
       margin-bottom: 2rem;
@@ -164,6 +168,7 @@
       width: 220px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       transition: transform 0.3s ease;
+       overflow-x: hidden;
     }
     .chef-card:hover {
       transform: translateY(-5px);
@@ -175,52 +180,50 @@
     }
 
     /* Testimonials */
-  /* Testimonials */
-.testimonials {
-  margin-top: 5rem;
-  padding: 3rem 10%;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.7);
-}
+    .testimonials {
+      margin-top: 5rem;
+      padding: 3rem 10%;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+       overflow-x: hidden;
+    }
 
-.testimonials h3 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #000;
-}
+    .testimonials h3 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
 
-.testimonial-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
+    .testimonial-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
 
-.testimonial-card {
-  background: #ffcc00;
-  padding: 1.5rem;
-  border-radius: 10px;
-  width: 280px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  font-style: italic;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: #000;
-}
+    .testimonial-card {
+      background: #ffcc00;
+      padding: 1.5rem;
+      border-radius: 10px;
+      width: 280px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      font-style: italic;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      color: #000;
+    }
 
-.testimonial-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
 
-.testimonial-card h4 {
-  margin-top: 1rem;
-  font-weight: bold;
-  font-style: normal;
-}
-
+    .testimonial-card h4 {
+      margin-top: 1rem;
+      font-weight: bold;
+      font-style: normal;
+    }
 
     /* Footer */
- 
     .footer-bottom {
       display: flex;
       justify-content: center;
@@ -229,6 +232,49 @@
       font-size: 14px;
       border-top: 1px solid #333;
       padding-top: 10px;
+      color: white;
+       overflow-x: hidden;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body {
+        overflow-x: hidden;
+        overflow-y: scroll;
+      }
+      
+      .navbar {
+        padding: 1rem;
+        flex-direction: row;
+        text-align: center;
+        width: 100vw;
+        gap: -100px;
+      }
+      
+      .nav-links {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+      
+      .about {
+        padding: 7rem 5% 2rem;
+      }
+      
+      .about-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .chef-card, .testimonial-card {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .about-text {
+        min-width: auto;
+      }
     }
   </style>
 </head>
@@ -276,16 +322,12 @@
      <div class="chef-card" data-aos="fade-up">
       <img src="./Screenshot 2025-08-20 154213.png" alt="Chef">
       <h4>Adam smith</h4>
-      <p>Cooking Expert Knife Skills: Precision, speed, and safety with various cuts (julienne, brunoise, chiffonade).
-
-Mastery of Techniques: Proficiency in a wide range of methods like sautéing, roasting, braising, baking, grilling, sous-vide, tempering, and fermentation..</p>
+      <p>Cooking Expert Knife Skills: Precision, speed, and safety with various cuts (julienne, brunoise, chiffonade). Mastery of Techniques: Proficiency in a wide range of methods like sautéing, roasting, braising, baking, grilling, sous-vide, tempering, and fermentation.</p>
     </div>
      <div class="chef-card" data-aos="fade-up">
       <img src="./Screenshot 2025-08-20 154321.png" alt="Chef">
       <h4>Gordon</h4>
-      <p>Mastering the "Mother Sauces": The foundation of classical French cooking are the five mother sauces:Béchamel: Milk-based white sauce.
-Velouté: White stock-based sauce (chicken, fish, or veal).
-</p>
+      <p>Mastering the "Mother Sauces": The foundation of classical French cooking are the five mother sauces:Béchamel: Milk-based white sauce. Velouté: White stock-based sauce (chicken, fish, or veal).</p>
     </div>
      <div class="chef-card" data-aos="fade-up">
       <img src="./Screenshot 2025-08-20 154359.png" alt="Chef">
@@ -295,7 +337,6 @@ Velouté: White stock-based sauce (chicken, fish, or veal).
   </div>
 </section>
 
-<!-- Testimonials -->
 <!-- Testimonials -->
 <section class="testimonials">
   <h3>What Our Customers Say</h3>
@@ -323,10 +364,9 @@ Velouté: White stock-based sauce (chicken, fish, or veal).
   </div>
 </section>
 
-
 <!-- Footer -->
-
 <div class="footer-bottom">&copy; 2025 Stackly. All rights reserved.</div>
+
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init({ duration: 1000, once: true });
