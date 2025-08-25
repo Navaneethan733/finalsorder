@@ -145,7 +145,7 @@ a:hover {
 
 /* Search Box */
 .search-box {
-  width: 50rem;
+  width: 40rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -230,7 +230,8 @@ a:hover {
   transition: background 0.3s ease, transform 0.2s ease;
 }
 .icon-button:hover {
-  background-color: #070707;
+background: #ffcc00;
+  color: #000;
   transform: scale(1.05);
 }
 
@@ -257,7 +258,6 @@ a:hover {
 .takeaway:hover {
   transform: translateY(-20rem) scale(1.04);
   box-shadow: 0 8px 32px rgba(255, 102, 0, 0.25), 0 2px 12px #7e7d7e;
-  border-color: #080808;
 }
 
 .center-screen {
@@ -335,150 +335,6 @@ a:hover {
   font-family: "MyCustomFonts";
   src: url("./PlaywriteAUQLD-VariableFont_wght.ttf");
 }
-.Services {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.644);
-  flex-direction: column;
-  gap: 20px;
-  height: 1450px;
-}
-.Services h2 {
-  font-family: "MyCustomFont";
-  color: #ffcc00;
-}
-.Services p {
-  font-family: "MyCustomFonts";
-  width: 770px;
-}
-.our {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  transform: translatey(-5rem);
-}
-.wholeBox1 {
-  display: flex;
-  justify-content: space-between;
-}
-.imgBox1 img {
-  height: 250px;
-  width: 400px;
-  border-radius: 20px;
-  transform: translateX(52rem);
-}
-.Services .word1 {
-  transform: translateX(-28rem);
-  line-height: 2.5rem;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.74);
-  border-radius: 15px;
-  transition: all 0.5s ease;
-  padding: 20px;
-}
-
-.Services .word1:hover {
-  border-radius: 50px 15px 50px 15px;
-  background: #ffcc00;
-  color: #000;
-  cursor: pointer;
-}
-.word1:hover h2 {
-  color: #000;
-}
-
-.wholeBox2 {
-  display: flex;
-  justify-content: space-between;
-}
-.imgBox2 img {
-  height: 250px;
-  width: 400px;
-  border-radius: 20px;
-  transform: translateX(1rem);
-}
-
-.Services .word2 {
-  transform: translateX(15rem);
-  line-height: 2.5rem;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.74);
-  border-radius: 15px;
-  transition: all 0.5s ease;
-  padding: 20px;
-  transform: translateX(4rem);
-}
-
-.Services .word2:hover {
-  border-radius: 50px 15px 50px 15px;
-  background: #ffcc00;
-  color: #000;
-  cursor: pointer;
-}
-.word2:hover h2 {
-  color: #000;
-}
-.wholeBox3 {
-  display: flex;
-  justify-content: space-between;
-}
-.imgBox3 img {
-  height: 250px;
-  width: 400px;
-  border-radius: 20px;
-  transform: translateX(52rem);
-}
-.Services .word3 {
-  transform: translateX(-29rem);
-  line-height: 2.5rem;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.74);
-  border-radius: 15px;
-  transition: all 0.5s ease;
-  padding: 20px;
-}
-
-.Services .word3:hover {
-  border-radius: 50px 15px 50px 15px;
-  background: #ffcc00;
-  color: #000;
-  cursor: pointer;
-}
-.word3:hover h2 {
-  color: #000;
-}
-.wholeBox4 {
-  display: flex;
-  justify-content: space-between;
-}
-.imgBox4 img {
-  height: 250px;
-  width: 400px;
-  border-radius: 20px;
-  transform: translateX(-5rem);
-}
-.Services .word4 {
-  transform: translateX(5rem);
-  line-height: 2.5rem;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.74);
-  border-radius: 15px;
-  transition: all 0.5s ease;
-  padding: 20px;
-}
-
-.Services .word4:hover {
-  border-radius: 50px 15px 50px 15px;
-  background: #ffcc00;
-  color: #000;
-  cursor: pointer;
-}
-.word4:hover h2 {
-  color: #000;
-}
-
 footer {
   background: #000;
   color: #fff;
