@@ -6,7 +6,6 @@
     <title>FAQ Accordion</title>
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <style>
-      
       @font-face {
         font-family: "MyCustomFont";
         src: url("./EduNSWACTCursive-VariableFont_wght.ttf");
@@ -21,159 +20,163 @@
         padding: 40px;
       }
       .navbar {
-      position: fixed;          
-      top: 0;
-      left: 0;
-      width: 1300px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background: rgba(0, 0, 0, 0.9);
-      color: #fff;
-      z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-      transition: all 0.3s ease;
-      overflow-x: hidden;
-    }
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 1300px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: rgba(0, 0, 0, 0.9);
+        color: #fff;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        transition: all 0.3s ease;
+        overflow-x: hidden;
+      }
 
-    .navbar.scrolled {
-      padding: 0.7rem 2rem;
-      background: rgba(0, 0, 0, 0.95);
-    }
+      .navbar.scrolled {
+        padding: 0.7rem 2rem;
+        background: rgba(0, 0, 0, 0.95);
+      }
 
-    .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      cursor: pointer;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-    }
-    
-    .logo i {
-      color: #ffcc00;
-      margin-right: 8px;
-    }
+      .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        cursor: pointer;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
 
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
+      .logo i {
+        color: #ffcc00;
+        margin-right: 8px;
+      }
 
-    .nav-links li a {
-      color: #fff;
-      font-weight: 500;
-      transition: color 0.3s;
-      position: relative;
-      text-decoration: none;
-    }
-    
-    .nav-links li a:after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #ffcc00;
-      transition: width 0.3s ease;
-    }
-    
-    .nav-links li a:hover:after {
-      width: 100%;
-    }
-    
-    .nav-links li a:hover {
-      color: #ffcc00;
-    }
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+      }
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-    }
-    
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background: white;
-      transition: all 0.3s ease;
-    }
+      .nav-links li a {
+        color: #fff;
+        font-weight: 500;
+        transition: color 0.3s;
+        position: relative;
+        text-decoration: none;
+      }
 
-  .floating-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1; /* stays behind content */
-  background: linear-gradient(120deg, #ffcc00, #ffd6a5, #ffcc00); /* food-like warm tones */
-}
+      .nav-links li a:after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #ffcc00;
+        transition: width 0.3s ease;
+      }
 
-.floating-bg span {
-  position: absolute;
-  display: block;
-  font-size: 5rem; /* emoji size */
-  bottom: -80px;
-  animation: floatFood 12s infinite;
-}
+      .nav-links li a:hover:after {
+        width: 100%;
+      }
 
-/* Different positions + delays */
-.floating-bg span:nth-child(1) {
-  left: 10%;
-  font-size: 5rem;
-  animation-delay: 0s;
-}
+      .nav-links li a:hover {
+        color: #ffcc00;
+      }
 
-.floating-bg span:nth-child(2) {
-  left: 25%;
-  animation-delay: 2s;
-}
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
 
-.floating-bg span:nth-child(3) {
-  left: 40%;
-  font-size: 5rem;
-  animation-delay: 4s;
-}
+      .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: white;
+        transition: all 0.3s ease;
+      }
 
-.floating-bg span:nth-child(4) {
-  left: 60%;
-  animation-delay: 1s;
-}
+      .floating-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1; /* stays behind content */
+        background: linear-gradient(
+          120deg,
+          #ffcc00,
+          #ffd6a5,
+          #ffcc00
+        ); /* food-like warm tones */
+      }
 
-.floating-bg span:nth-child(5) {
-  left: 75%;
-  font-size: 5rem;
-  animation-delay: 3s;
-}
+      .floating-bg span {
+        position: absolute;
+        display: block;
+        font-size: 5rem; /* emoji size */
+        bottom: -80px;
+        animation: floatFood 12s infinite;
+      }
 
-.floating-bg span:nth-child(6) {
-  left: 90%;
-  animation-delay: 5s;
-}
+      /* Different positions + delays */
+      .floating-bg span:nth-child(1) {
+        left: 10%;
+        font-size: 5rem;
+        animation-delay: 0s;
+      }
 
-/* Animation */
-@keyframes floatFood {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0.7;
-  }
-  50% {
-    transform: translateY(-300px) rotate(180deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-600px) rotate(360deg);
-    opacity: 0;
-  }
-}
+      .floating-bg span:nth-child(2) {
+        left: 25%;
+        animation-delay: 2s;
+      }
 
-      
+      .floating-bg span:nth-child(3) {
+        left: 40%;
+        font-size: 5rem;
+        animation-delay: 4s;
+      }
+
+      .floating-bg span:nth-child(4) {
+        left: 60%;
+        animation-delay: 1s;
+      }
+
+      .floating-bg span:nth-child(5) {
+        left: 75%;
+        font-size: 5rem;
+        animation-delay: 3s;
+      }
+
+      .floating-bg span:nth-child(6) {
+        left: 90%;
+        animation-delay: 5s;
+      }
+
+      /* Animation */
+      @keyframes floatFood {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 0.7;
+        }
+        50% {
+          transform: translateY(-300px) rotate(180deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-600px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
       .faq {
         display: flex;
         align-items: center;
@@ -197,16 +200,16 @@
       .faq-item {
         border-bottom: 1px solid #ddd;
       }
-      .faq-item h2{
+      .faq-item h2 {
         color: black;
         background: #ffd630;
         height: 50px;
         width: 170px;
         padding: 15px;
         border-radius: 25px 5px 20px 5px;
-        transition: all ease 0.4s ;
+        transition: all ease 0.4s;
       }
-      .faq-item h2:hover{
+      .faq-item h2:hover {
         background: #000000;
         color: #ffcc00;
         cursor: pointer;
@@ -256,31 +259,33 @@
     </style>
   </head>
   <body>
-      <nav class="navbar">
-     <a class="logo" href="./index.html"><i class="fas fa-utensils"></i><img src="./logo-stackly.jpg" alt="" height="40px" width="130px"></a>
-    <ul class="nav-links">
-       <li><a href="./page2.html">Home</a></li>
-          <li><a href="./about.html">About</a></li>
-          <li><a href="./Services.html">Services</a></li>
-          <li><a href="./FAQ.html">FAQ</a></li>
-          <li><a href="./404.html">Contact</a></li>
-          <li><a href="./signup.html">Sign Up</a></li>
-    </ul>
-    <div class="hamburger" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
+    <nav class="navbar">
+      <a class="logo" href="./index.html"
+        ><i class="fas fa-utensils"></i
+        ><img src="./logo-stackly.jpg" alt="" height="40px" width="130px"
+      /></a>
+      <ul class="nav-links">
+        <li><a href="./page2.html">Home</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./Services.html">Services</a></li>
+        <li><a href="./FAQ.html">FAQ</a></li>
+        <li><a href="./404.html">Contact</a></li>
+        <li><a href="./signup.html">Sign Up</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+    <div class="floating-bg">
+      <span>🍕</span>
+      <span>🍔</span>
+      <span>🍟</span>
+      <span>🥗</span>
+      <span>🍩</span>
+      <span>🍗</span>
     </div>
-  </nav>
-<div class="floating-bg">
-  <span>🍕</span>
-  <span>🍔</span>
-  <span>🍟</span>
-  <span>🥗</span>
-  <span>🍩</span>
-  <span>🍗</span>
-</div>
-
 
     <div class="faq">
       <h2>FAQ</h2>
@@ -513,7 +518,7 @@
         });
       });
 
-       AOS.init({
+      AOS.init({
         duration: 1000,
         once: true,
       });
