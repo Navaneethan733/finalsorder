@@ -103,13 +103,83 @@
       background: white;
       transition: all 0.3s ease;
     }
+
+  .floating-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* stays behind content */
+  background: linear-gradient(120deg, #ffcc00, #ffd6a5, #ffcc00); /* food-like warm tones */
+}
+
+.floating-bg span {
+  position: absolute;
+  display: block;
+  font-size: 5rem; /* emoji size */
+  bottom: -80px;
+  animation: floatFood 12s infinite;
+}
+
+/* Different positions + delays */
+.floating-bg span:nth-child(1) {
+  left: 10%;
+  font-size: 5rem;
+  animation-delay: 0s;
+}
+
+.floating-bg span:nth-child(2) {
+  left: 25%;
+  animation-delay: 2s;
+}
+
+.floating-bg span:nth-child(3) {
+  left: 40%;
+  font-size: 5rem;
+  animation-delay: 4s;
+}
+
+.floating-bg span:nth-child(4) {
+  left: 60%;
+  animation-delay: 1s;
+}
+
+.floating-bg span:nth-child(5) {
+  left: 75%;
+  font-size: 5rem;
+  animation-delay: 3s;
+}
+
+.floating-bg span:nth-child(6) {
+  left: 90%;
+  animation-delay: 5s;
+}
+
+/* Animation */
+@keyframes floatFood {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-300px) rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-600px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
       
       .faq {
         display: flex;
         align-items: center;
         justify-content: center;
         font-family: "MyCustomFont";
-        color: #ffcc00;
+        color: #f5d44f;
         background: black;
         height: 50px;
         width: 250px;
@@ -119,7 +189,7 @@
       }
 
       .faq-container {
-        max-width: 700px;
+        max-width: 1000px;
         margin: auto;
         transform: translateY(7rem);
       }
@@ -129,20 +199,22 @@
       }
       .faq-item h2{
         color: black;
-        background: #ffcc00;
+        background: #ffd630;
         height: 50px;
         width: 170px;
         padding: 15px;
         border-radius: 25px 5px 20px 5px;
+        transition: all ease 0.4s ;
       }
       .faq-item h2:hover{
         background: #000000;
         color: #ffcc00;
+        cursor: pointer;
       }
 
       .faq-question {
-        background: #ffcc00;
-        color: #000000;
+        background: #00000071;
+        color: #ffffff;
         width: 100%;
         padding: 16px;
         font-size: 16px;
@@ -199,6 +271,16 @@
       <span></span>
     </div>
   </nav>
+<div class="floating-bg">
+  <span>🍕</span>
+  <span>🍔</span>
+  <span>🍟</span>
+  <span>🥗</span>
+  <span>🍩</span>
+  <span>🍗</span>
+</div>
+
+
     <div class="faq">
       <h2>FAQ</h2>
       <img
@@ -254,7 +336,7 @@
         </button>
         <div class="faq-answer">
           <p>
-            Usually 30–45 minutes depending on your location and order size.
+            Usually 30-45 minutes depending on your location and order size.
           </p>
         </div>
       </div>
@@ -391,7 +473,7 @@
           What are your working hours?<span>+</span>
         </button>
         <div class="faq-answer">
-          <p>Monday–Friday: 11 AM – 10 PM, Saturday–Sunday: 10 AM – 11 PM</p>
+          <p>Monday-Friday: 11 AM - 10 PM, Saturday-Sunday: 10 AM - 11 PM</p>
         </div>
       </div>
 

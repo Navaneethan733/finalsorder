@@ -230,7 +230,7 @@ a:hover {
   transition: background 0.3s ease, transform 0.2s ease;
 }
 .icon-button:hover {
-background: #ffcc00;
+  background-color: #ffcc00;
   color: #000;
   transform: scale(1.05);
 }

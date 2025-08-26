@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: url(./set-of-restaurant-doodles-food-and-drinks-on-white-background-vector.jpg);
+        color: #fff;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: rgba(0, 0, 0, 0.9);
+        color: #fff;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        transition: all 0.3s ease;
+        overflow-x: hidden;
+      }
+
+      .navbar.scrolled {
+        padding: 0.7rem 2rem;
+        background: rgba(0, 0, 0, 0.95);
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        cursor: pointer;
+        color: #fff;
+        display: flex;
+        align-items: center;
+         text-decoration: none;
+      }
+
+      .logo i {
+        color: #ffcc00;
+        margin-right: 8px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+      }
+
+      .nav-links li a {
+        color: #fff;
+        font-weight: 500;
+        transition: color 0.3s;
+        position: relative;
+        text-decoration: none;
+      }
+
+      .nav-links li a:after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #ffcc00;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links li a:hover:after {
+        width: 100%;
+      }
+
+      .nav-links li a:hover {
+        color: #ffcc00;
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: white;
+        transition: all 0.3s ease;
+      }
+      @font-face {
+        font-family: "MyCustomFont";
+        src: url("./EduNSWACTCursive-VariableFont_wght.ttf");
+      }
+      @font-face {
+        font-family: "MyCustomFonts";
+        src: url("./PlaywriteAUQLD-VariableFont_wght.ttf");
+      }
+      .Services {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.644);
+        flex-direction: column;
+        gap: 20px;
+        height: 1450px;
+        transform: translateY(1rem);
+      }
+      .Services h2 {
+        font-family: "MyCustomFont";
+        color: #ffcc00;
+      }
+      .Services p {
+        font-family: "MyCustomFonts";
+        width: 770px;
+      }
+      .our {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        transform: translatey(-3rem);
+      }
+      .wholeBox1 {
+        display: flex;
+        justify-content: space-between;
+      }
+      .imgBox1 img {
+        height: 250px;
+        width: 400px;
+        border-radius: 20px;
+        transform: translateX(52rem);
+      }
+      .Services .word1 {
+        transform: translateX(-28rem);
+        line-height: 2.5rem;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.74);
+        border-radius: 15px;
+        transition: all 0.5s ease;
+        padding: 20px;
+      }
+
+      .Services .word1:hover {
+        border-radius: 50px 15px 50px 15px;
+        background: #ffcc00;
+        color: #000;
+        cursor: pointer;
+      }
+      .word1:hover h2 {
+        color: #000;
+      }
+
+      .wholeBox2 {
+        display: flex;
+        justify-content: space-between;
+      }
+      .imgBox2 img {
+        height: 250px;
+        width: 400px;
+        border-radius: 20px;
+        transform: translateX(1rem);
+      }
+
+      .Services .word2 {
+        transform: translateX(15rem);
+        line-height: 2.5rem;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.74);
+        border-radius: 15px;
+        transition: all 0.5s ease;
+        padding: 20px;
+        transform: translateX(4rem);
+      }
+
+      .Services .word2:hover {
+        border-radius: 50px 15px 50px 15px;
+        background: #ffcc00;
+        color: #000;
+        cursor: pointer;
+      }
+      .word2:hover h2 {
+        color: #000;
+      }
+      .wholeBox3 {
+        display: flex;
+        justify-content: space-between;
+      }
+      .imgBox3 img {
+        height: 250px;
+        width: 400px;
+        border-radius: 20px;
+        transform: translateX(52rem);
+      }
+      .Services .word3 {
+        transform: translateX(-29rem);
+        line-height: 2.5rem;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.74);
+        border-radius: 15px;
+        transition: all 0.5s ease;
+        padding: 20px;
+      }
+
+      .Services .word3:hover {
+        border-radius: 50px 15px 50px 15px;
+        background: #ffcc00;
+        color: #000;
+        cursor: pointer;
+      }
+      .word3:hover h2 {
+        color: #000;
+      }
+      .wholeBox4 {
+        display: flex;
+        justify-content: space-between;
+      }
+      .imgBox4 img {
+        height: 250px;
+        width: 400px;
+        border-radius: 20px;
+        transform: translateX(-5rem);
+      }
+      .Services .word4 {
+        transform: translateX(5rem);
+        line-height: 2.5rem;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.74);
+        border-radius: 15px;
+        transition: all 0.5s ease;
+        padding: 20px;
+      }
+
+      .Services .word4:hover {
+        border-radius: 50px 15px 50px 15px;
+        background: #ffcc00;
+        color: #000;
+        cursor: pointer;
+      }
+      .word4:hover h2 {
+        color: #000;
+      }
+    </style>
+      <nav class="navbar">
+    <a class="logo" href="./index.html"></i> STACKLY</a>
+    <ul class="nav-links">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./404.html">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="./signup.html">Sign Up</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+  
+    <div class="Services">
+      <div class="our">
+        <h2>Our Services</h2>
+        <p>
+          At <strong>STACKLY</strong>, we bring the perfect blend of taste,
+          tradition, and top-quality service. Whether you’re dining in, ordering
+          out, or hosting a special event, we’ve got you covered.
+        </p>
+      </div>
+      <div class="wholeBox1">
+        <div class="imgBox1">
+          <img src="./medium-shot-woman-working-luxury-restaurant.jpg" alt="" />
+        </div>
+        <div class="word1">
+          <h2>🍴 Dine-In Experience</h2>
+          <p>
+            Step into our warm and inviting ambiance where every meal is a
+            celebration. Enjoy:
+          </p>
+          <ul>
+            ✔ A wide range of freshly prepared dishes
+          </ul>
+          <ul>
+            ✔ Comfortable seating & family-friendly atmosphere
+          </ul>
+          <ul>
+            ✔ Attentive staff to make your dining memorable
+          </ul>
+        </div>
+      </div>
+      <div class="wholeBox2">
+        <div class="imgBox2">
+          <img
+            src="./depositphotos_437048410-stock-photo-happy-smiling-black-delivery-man.jpg"
+            alt=""
+          />
+        </div>
+        <div class="word2">
+          <h2>Food Delivery</h2>
+          <p>Short on time? Grab your favorites on the go!</p>
+          <ul>
+            ✔ Quick and easy takeaway counter
+          </ul>
+          <ul>
+            ✔ Perfect packaging for hassle-free meals
+          </ul>
+          <ul>
+            ✔ Pre-order available for zero waiting
+          </ul>
+        </div>
+      </div>
+      <div class="wholeBox3">
+        <div class="imgBox3">
+          <img src="./Catering-1-1024x683.jpg" alt="" />
+        </div>
+        <div class="word3">
+          <h2>Catering & Events</h2>
+          <p>
+            Make your celebrations extra delicious with our catering services.
+          </p>
+          <ul>
+            ✔ Customizable menus for weddings, birthdays, and corporate events
+          </ul>
+          <ul>
+            ✔ Professional setup & serving staff available
+          </ul>
+          <ul>
+            ✔ Flavors that impress every guest
+          </ul>
+        </div>
+      </div>
+      <div class="wholeBox3">
+        <div class="imgBox4">
+          <img src="./SScreenshot 2025-08-22 162017.png" alt="" />
+        </div>
+        <div class="word4">
+          <h2>Special Add-ons</h2>
+          <ul>
+            ✔ Chef’s specials every week
+          </ul>
+          <ul>
+            ✔ Seasonal dishes & festive offers
+          </ul>
+          <ul>
+            ✔Membership discounts & loyalty rewards
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
