@@ -388,9 +388,9 @@ a:hover {
   grid-template-columns: repeat(2, auto);
   transition: all 0.5s ease;
 }
-.pic img:hover{
-box-shadow: 0 0 20px #ffdf5e;
-border-radius: 50px 15px 50px 15px;
+.pic img:hover {
+  box-shadow: 0 0 20px #ffdf5e;
+  border-radius: 50px 15px 50px 15px;
 }
 
 .pic img {
