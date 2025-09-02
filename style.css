@@ -184,6 +184,7 @@ a:hover {
 
 .search-box button:hover {
   background: #000000;
+  border-radius: 10px;
 }
 
 /* Hero */
