@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="bg-red-600 text-white p-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Our Menu</h1>
+
+      <!-- Veg/Non-Veg Switch -->
+      <div class="flex items-center space-x-2">
+        <span class="text-sm">Veg</span>
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" id="vegToggle" class="sr-only peer" />
+          <div
+            class="w-12 h-6 bg-gray-300 peer-checked:bg-green-500 rounded-full after:content-[''] after:absolute after:w-5 after:h-5 after:bg-white after:rounded-full after:top-0.5 after:left-0.5 after:transition-all peer-checked:after:translate-x-6"
+          ></div>
+        </label>
+        <span class="text-sm">Non-Veg</span>
+      </div>
+    </header>
+
+    <!-- Main Section -->
+    <main
+      class="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6"
+    >
+      <!-- Veg Menu -->
+      <section id="vegMenu" class="space-y-4">
+        <h2 class="text-xl font-semibold text-green-600">🥦 Veg Dishes</h2>
+
+        <div class="menu-card bg-white p-4 shadow rounded-lg">
+          <img
+            src="https://source.unsplash.com/300x200/?paneer"
+            alt="Paneer"
+            class="w-full h-40 object-cover rounded"
+          />
+          <h3 class="mt-2 font-bold">Paneer Butter Masala</h3>
+          <p class="text-gray-600">₹220</p>
+          <div class="flex items-center mt-2 space-x-2">
+            <button
+              onclick="decreaseQty(this)"
+              class="px-2 py-1 bg-gray-200 rounded"
+            >
+              -
+            </button>
+            <span class="qty">0</span>
+            <button
+              onclick="increaseQty(this)"
+              class="px-2 py-1 bg-gray-200 rounded"
+            >
+              +
+            </button>
+          </div>
+          <button
+            onclick="addToCart('Paneer Butter Masala',220,this)"
+            class="mt-3 w-full bg-red-600 text-white py-2 rounded hover:bg-red-700"
+          >
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="menu-card bg-white p-4 shadow rounded-lg">
+          <img
+            src="https://source.unsplash.com/300x200/?veg-biryani"
+            alt="Veg Biryani"
+            class="w-full h-40 object-cover rounded"
+          />
+          <h3 class="mt-2 font-bold">Veg Biryani</h3>
+          <p class="text-gray-600">₹180</p>
+          <div class="flex items-center mt-2 space-x-2">
+            <button
+              onclick="decreaseQty(this)"
+              class="px-2 py-1 bg-gray-200 rounded"
+            >
+              -
+            </button>
+            <span class="qty">0</span>
+            <button
+              onclick="increaseQty(this)"
+              class="px-2 py-1 bg-gray-200 rounded"
+            >
+              +
+            </button>
+          </div>
+          <button
+            onclick="addToCart('Veg Biryani',180,this)"
+            class="mt-3 w-full bg-red-600 text-white py-2 rounded hover:bg-red-700"
+          >
+            Add to Cart
+          </button>
+        </div>
+      </section>
+
+      <!-- Non-Veg Menu -->
+      <section id="nonVegMenu" class="space-y-4">
+        <h2 class="text-xl font-semibold text-red-600">🍗 Non-Veg Dishes</h2>
+
+        <div class="menu-card bg-white p-4 shadow rounded-lg">
+          <img
+            src="https://source.unsplash.com/300x200/?chicken-curry"
+            alt="Chicken Curry"
+            class="w-full h-40 object-cover rounded"
+          />
+          <h3 class="mt-2 font-bold">Chicken Curry</h3>
+          <p class="text-gray-600">₹250</p>
+          <div class="flex items-center mt-2 space-x-2">
+            <button
+              onclick="decreaseQty(this)"
+              class="px-2 py-1 bg-gray-200 rounded"
+            >
+              -
+            </button>
+            <span class="qty">0</span>
+            <button
+              onclick="increaseQty(this)"
+              class="px-2 py-1 bg-gray-200 rounded"
+            >
+              +
+            </button>
+          </div>
+          <button
+            onclick="addToCart('Chicken Curry',250,this)"
+            class="mt-3 w-full bg-red-600 text-white py-2 rounded hover:bg-red-700"
+          >
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="menu-card bg-white p-4 shadow rounded-lg">
+          <img
+            src="https://source.unsplash.com/300x200/?mutton"
+            alt="Mutton Curry"
+            class="w-full h-40 object-cover rounded"
+          />
+          <h3 class="mt-2 font-bold">Mutton Curry</h3>
+          <p class="text-gray-600">₹320</p>
+          <div class="flex items-center mt-2 space-x-2">
+            <button
+              onclick="decreaseQty(this)"
+              class="px-2 py-1 bg-gray-200 rounded"
+            >
+              -
+            </button>
+            <span class="qty">0</span>
+            <button
+              onclick="increaseQty(this)"
+              class="px-2 py-1 bg-gray-200 rounded"
+            >
+              +
+            </button>
+          </div>
+          <button
+            onclick="addToCart('Mutton Curry',320,this)"
+            class="mt-3 w-full bg-red-600 text-white py-2 rounded hover:bg-red-700"
+          >
+            Add to Cart
+          </button>
+        </div>
+      </section>
+
+      <!-- Cart -->
+      <aside class="bg-white shadow-lg rounded-lg p-4 sticky top-4 h-fit">
+        <h3 class="font-bold text-lg mb-3">🛒 Your Cart</h3>
+        <ul id="cartItems" class="space-y-2 text-sm"></ul>
+        <p class="mt-4 font-bold">Total: ₹<span id="total">0</span></p>
+        <button
+          class="mt-3 w-full bg-green-600 text-white py-2 rounded hover:bg-green-700"
+        >
+          Checkout
+        </button>
+      </aside>
+    </main>
+
+    <!-- Scripts -->
+    <script>
+      const vegToggle = document.getElementById("vegToggle");
+      const vegMenu = document.getElementById("vegMenu");
+      const nonVegMenu = document.getElementById("nonVegMenu");
+      const cartItems = document.getElementById("cartItems");
+      const totalEl = document.getElementById("total");
+
+      let total = 0;
+
+      // Toggle menus
+      vegToggle.addEventListener("change", () => {
+        vegMenu.style.display = vegToggle.checked ? "none" : "block";
+        nonVegMenu.style.display = vegToggle.checked ? "block" : "none";
+      });
+
+      // Quantity functions
+      function increaseQty(btn) {
+        let qtyEl = btn.parentNode.querySelector(".qty");
+        qtyEl.textContent = parseInt(qtyEl.textContent) + 1;
+      }
+
+      function decreaseQty(btn) {
+        let qtyEl = btn.parentNode.querySelector(".qty");
+        let current = parseInt(qtyEl.textContent);
+        if (current > 0) qtyEl.textContent = current - 1;
+      }
+
+      // Add to Cart
+      function addToCart(name, price, btn) {
+        let qty = parseInt(btn.parentNode.querySelector(".qty").textContent);
+        if (qty > 0) {
+          let li = document.createElement("li");
+          li.textContent = `${name} x ${qty} - ₹${price * qty}`;
+          cartItems.appendChild(li);
+          total += price * qty;
+          totalEl.textContent = total;
+          btn.parentNode.querySelector(".qty").textContent = 0;
+        } else {
+          alert("Please select quantity!");
+        }
+      }
+    </script>
+  </body>
+</html>
