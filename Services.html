@@ -37,7 +37,8 @@
         z-index: 1000;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         transition: all 0.3s ease;
-        overflow-x: hidden;
+        /* overflow-x: hidden;  ❌ Remove this */
+        overflow: visible; /* ✅ Allow dropdown to show outside */
       }
 
       .navbar.scrolled {
@@ -64,6 +65,7 @@
         display: flex;
         gap: 1.5rem;
         list-style: none;
+        align-items: center;
       }
 
       .nav-links li a {
@@ -106,6 +108,55 @@
         background: white;
         transition: all 0.3s ease;
       }
+      /* Dropdown container */
+      .dropdown {
+        position: relative;
+      }
+
+      /* Main dropdown link */
+      .dropdown > a {
+        padding: 10px 14px;
+        color: #fff;
+        display: block;
+        cursor: pointer;
+      }
+
+      /* Submenu */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #000;
+        min-width: 160px;
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        z-index: 2000; /* higher than navbar */
+      }
+
+      /* Submenu list items */
+      .dropdown-content li {
+        list-style: none;
+      }
+
+      .dropdown-content li a {
+        display: block;
+        padding: 10px 14px;
+        color: #fff;
+        transition: background 0.3s;
+        white-space: nowrap;
+      }
+
+      .dropdown-content li a:hover {
+        background: #ffcc00;
+        color: #000;
+      }
+
+      /* Show submenu on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
       @font-face {
         font-family: "MyCustomFont";
         src: url("./Static/EduNSWACTCursive-VariableFont_wght.ttf");
@@ -262,15 +313,29 @@
       }
     </style>
     <nav class="navbar">
-     <a class="logo" href="./index.html"><img src="./Icons/Yellow Stackly.png" alt="" height="40px" width="130px"></a>
+      <a class="logo" href="./index.html">
+        <img
+          src="./Icons/Yellow Stackly.png"
+          alt="Logo"
+          height="40"
+          width="130"
+        />
       </a>
+
       <ul class="nav-links">
-        <li><a href="./index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Home</a>
+          <ul class="dropdown-content">
+            <li><a href="./index.html">Home 1</a></li>
+            <li><a href="./page2.html">Home 2</a></li>
+          </ul>
+        </li>
         <li><a href="./about.html">About</a></li>
         <li><a href="./FAQ.html">FAQ</a></li>
         <li><a href="./contact.html">Contact</a></li>
         <li><a href="./signup.html">Sign Up</a></li>
       </ul>
+
       <div class="hamburger" onclick="toggleMenu()">
         <span></span>
         <span></span>
@@ -289,7 +354,10 @@
       </div>
       <div class="wholeBox1">
         <div class="imgBox1">
-          <img src="./New folder/medium-shot-woman-working-luxury-restaurant.jpg" alt="" />
+          <img
+            src="./New folder/medium-shot-woman-working-luxury-restaurant.jpg"
+            alt=""
+          />
         </div>
         <div class="word1">
           <h2>🍴 Dine-In Experience</h2>

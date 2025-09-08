@@ -10,7 +10,6 @@ html {
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: url(./Banners/set-of-restaurant-doodles-food-and-drinks-on-white-background-vector.jpg);
   color: #fff;
   line-height: 1.6;
   overflow-x: hidden;
@@ -185,6 +184,16 @@ a:hover {
 .search-box button:hover {
   background: #000000;
   border-radius: 10px;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  top: 7px;
+  width: 100%;
+  min-height: 100%;
+  z-index: -999;
 }
 
 /* Hero */

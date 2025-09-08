@@ -42,30 +42,50 @@
         justify-content: space-between;
         align-items: center;
         padding: 1rem 2rem;
-        background: rgba(0, 0, 0, 0.95);
+        background: rgba(0, 0, 0, 0.9);
         color: #fff;
         z-index: 1000;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-        overflow-x: hidden;
+        transition: all 0.3s ease;
+        /* overflow-x: hidden;  ❌ Remove this */
+        overflow: visible; /* ✅ Allow dropdown to show outside */
       }
+
+      .navbar.scrolled {
+        padding: 0.7rem 2rem;
+        background: rgba(0, 0, 0, 0.95);
+      }
+
       .logo {
         font-size: 1.8rem;
         font-weight: bold;
+        cursor: pointer;
         color: #fff;
+        display: flex;
+        align-items: center;
         text-decoration: none;
       }
+
+      .logo i {
+        color: #ffcc00;
+        margin-right: 8px;
+      }
+
       .nav-links {
         display: flex;
         gap: 1.5rem;
         list-style: none;
+        align-items: center;
       }
+
       .nav-links li a {
         color: #fff;
-        text-decoration: none;
         font-weight: 500;
-        position: relative;
         transition: color 0.3s;
+        position: relative;
+        text-decoration: none;
       }
+
       .nav-links li a:after {
         content: "";
         position: absolute;
@@ -76,11 +96,75 @@
         background: #ffcc00;
         transition: width 0.3s ease;
       }
+
       .nav-links li a:hover:after {
         width: 100%;
       }
+
       .nav-links li a:hover {
         color: #ffcc00;
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: white;
+        transition: all 0.3s ease;
+      }
+      /* Dropdown container */
+      .dropdown {
+        position: relative;
+      }
+
+      /* Main dropdown link */
+      .dropdown > a {
+        padding: 10px 14px;
+        color: #fff;
+        display: block;
+        cursor: pointer;
+      }
+
+      /* Submenu */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #000;
+        min-width: 160px;
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        z-index: 2000; /* higher than navbar */
+      }
+
+      /* Submenu list items */
+      .dropdown-content li {
+        list-style: none;
+      }
+
+      .dropdown-content li a {
+        display: block;
+        padding: 10px 14px;
+        color: #fff;
+        transition: background 0.3s;
+        white-space: nowrap;
+      }
+
+      .dropdown-content li a:hover {
+        background: #ffcc00;
+        color: #000;
+      }
+
+      /* Show submenu on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
       }
 
       /* About Section */
@@ -281,16 +365,36 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar">
-      <a class="logo" href="./index.html"><img src="./Icons/Yellow Stackly.png" alt="" height="40px" width="130px"></a>
+   <nav class="navbar">
+      <a class="logo" href="./index.html">
+        <img
+          src="./Icons/Yellow Stackly.png"
+          alt="Logo"
+          height="40"
+          width="130"
+        />
+      </a>
+
       <ul class="nav-links">
-        <li><a href="./page2.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Home</a>
+          <ul class="dropdown-content">
+            <li><a href="./index.html">Home 1</a></li>
+            <li><a href="./page2.html">Home 2</a></li>
+          </ul>
+        </li>
         <li><a href="./about.html">About</a></li>
         <li><a href="./Services.html">Services</a></li>
         <li><a href="./FAQ.html">FAQ</a></li>
         <li><a href="./contact.html">Contact</a></li>
         <li><a href="./signup.html">Sign Up</a></li>
       </ul>
+
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </nav>
 
     <!-- About -->
