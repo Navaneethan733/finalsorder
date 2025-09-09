@@ -317,6 +317,62 @@
       .faq-question.active + .faq-answer {
         max-height: 200px; /* adjust if answer is longer */
       }
+
+      /* =====================
+   1024px Media Query
+   ===================== */
+@media (max-width: 1024px) {
+  /* Navbar */
+  .navbar {
+    width: 976px;          /* full width instead of fixed 1290px */
+    padding: 0.8rem 1.5rem;
+  }
+  .nav-links {
+    gap: 1rem;
+  }
+  .logo img {
+    width: 110px;
+    height: auto;
+  }
+
+  /* FAQ heading box */
+  .faq {
+    transform: none;       /* remove forced translate */
+    margin: 6rem auto 2rem;
+    justify-content: center;
+  }
+
+  /* FAQ container */
+  .faq-container {
+    max-width: 90%;        /* shrink for tablet */
+    transform: none;
+    margin: 2rem auto;
+  }
+
+  /* FAQ sections */
+  .faq-item h2 {
+    width: auto;           /* not fixed 170px */
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 12px 18px;
+    text-align: center;
+  }
+
+  .faq-question {
+    font-size: 15px;
+    padding: 14px;
+  }
+
+  .faq-answer {
+    padding: 0 12px;
+  }
+
+  /* Background floating icons */
+  .floating-bg span {
+    font-size: 3.5rem; /* smaller emojis */
+  }
+}
+
     </style>
   </head>
   <body>
@@ -331,7 +387,7 @@
       <ul class="nav-links">
         <li>
           <div class="dropdown">
-            <a href="./index.html">Home </a>
+            <a href="#">Home </a>
             <div class="dropdown-options">
               <a href="./index.html">Home 1</a>
               <a href="./page2.html">Home 2</a>
