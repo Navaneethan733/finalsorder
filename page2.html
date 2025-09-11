@@ -91,7 +91,7 @@
       z-index: 1000;
       box-shadow: 0 2px 8px rgba(0,0,0,0.4);
       transition: all 0.3s ease;
-      overflow-x: hidden;
+      overflow-x: visible;
     }
 
     .navbar.scrolled {
@@ -158,6 +158,56 @@
       background: white;
       transition: all 0.3s ease;
     }
+
+     /* Dropdown container */
+      .dropdown {
+        position: relative;
+      }
+
+      /* Main dropdown link */
+      .dropdown > a {
+        padding: 10px 14px;
+        color: #fff;
+        display: block;
+        cursor: pointer;
+        transform: translateY(-10px);
+      }
+
+      /* Submenu */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #000;
+        min-width: 160px;
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        z-index: 2000; /* higher than navbar */
+      }
+
+      /* Submenu list items */
+      .dropdown-content li {
+        list-style: none;
+      }
+
+      .dropdown-content li a {
+        display: block;
+        padding: 10px 14px;
+        color: #fff;
+        transition: background 0.3s;
+        white-space: nowrap;
+      }
+
+      .dropdown-content li a:hover {
+        background: #ffcc00;
+        color: #000;
+      }
+
+      /* Show submenu on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
 
     /* Hero Section */
     .hero {
@@ -593,7 +643,30 @@
         height: 60px;
         font-size: 1.5rem;
       }
-    }
+
+       /* Dropdown inside mobile nav */
+  .dropdown .dropdown-content {
+    position: static;  /* removes absolute positioning */
+    background: rgba(0, 0, 0, 0.85);
+    box-shadow: none;
+    margin-left: 15px; /* indent submenu */
+    border-radius: 5px;
+    display: none; /* hidden by default */
+  }
+
+  /* Show submenu when parent has active class */
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+
+  /* Style submenu links */
+  .dropdown-content li a {
+    font-size: 0.9rem;
+    padding: 8px 14px;
+    border-bottom: 1px solid #333;
+  }
+}
+    
   </style>
 </head>
 <body>
@@ -601,7 +674,12 @@
   <nav class="navbar">
     <a class="logo" href="./index.html"><img src="./Icons/Yellow Stackly.png" alt="" height="40px" width="130px"></a>
     <ul class="nav-links">
-      <li><a href="./index.html">Home</a></li>
+      <li class="dropdown">
+          <a href="#">Home</a>
+          <ul class="dropdown-content">
+            <li><a href="./index.html">Home 1</a></li>
+          </ul>
+        </li>
           <li><a href="./about.html">About</a></li>
           <li><a href="./Services.html">Services</a></li>
           <li><a href="./FAQ.html">FAQ</a></li>
@@ -839,6 +917,17 @@
       navLinks.classList.toggle('active');
       hamburger.classList.toggle('active');
     }
+
+    // Enable dropdown toggle on mobile
+document.querySelectorAll(".dropdown > a").forEach(dropLink => {
+  dropLink.addEventListener("click", (e) => {
+    if (window.innerWidth <= 575) { 
+      e.preventDefault(); // stop default link behavior
+      dropLink.parentElement.classList.toggle("active");
+    }
+  });
+});
+
 
     // Navbar scroll effect
     window.addEventListener('scroll', function() {

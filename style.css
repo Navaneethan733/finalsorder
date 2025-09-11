@@ -195,6 +195,55 @@ a:hover {
   min-height: 100%;
   z-index: -999;
 }
+      /* Dropdown container */
+      .dropdown {
+        position: relative;
+      }
+
+      /* Main dropdown link */
+      .dropdown > a {
+        padding: 10px 14px;
+        color: #fff;
+        display: block;
+        cursor: pointer;
+        transform: translateY(-10px);
+      }
+
+      /* Submenu */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #000;
+        min-width: 160px;
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        z-index: 2000; /* higher than navbar */
+      }
+
+      /* Submenu list items */
+      .dropdown-content li {
+        list-style: none;
+      }
+
+      .dropdown-content li a {
+        display: block;
+        padding: 10px 14px;
+        color: #fff;
+        transition: background 0.3s;
+        white-space: nowrap;
+      }
+
+      .dropdown-content li a:hover {
+        background: #ffcc00;
+        color: #000;
+      }
+
+      /* Show submenu on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
 
 /* Hero */
 .hero {
