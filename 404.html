@@ -1,183 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - Page Not Found</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: url('./Banners/set-of-restaurant-doodles-food-and-drinks-on-white-background-vector.jpg') no-repeat center center/cover;
-      color: #fff;
-      line-height: 1.6;
-      overflow-x: hidden;
-      position: relative;
-    }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: url("./Banners/set-of-restaurant-doodles-food-and-drinks-on-white-background-vector.jpg")
+          no-repeat center center/cover;
+        color: #fff;
+        line-height: 1.6;
+        overflow-x: hidden;
+        position: relative;
+      }
 
-    /* Dark overlay for readability */
-    body::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      z-index: -1;
-    }
+      /* Dark overlay for readability */
+      body::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: -1;
+      }
 
-    a {
-      color: #fff;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    a:hover {
-      color: #ffcc00;
-    }
+      a {
+        color: #fff;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      a:hover {
+        color: #ffcc00;
+      }
 
-    /* Navbar */
-    .navbar {
-      position: fixed;          
-      top: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background: rgba(0, 0, 0, 0.9);
-      color: #fff;
-      z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-    }
+      /* Navbar */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: rgba(0, 0, 0, 0.9);
+        color: #fff;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      }
 
-    .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      cursor: pointer;
-      color: #fff;
-      display: flex;
-      align-items: center;
-    }
-    .logo i {
-      color: #ffcc00;
-      margin-right: 8px;
-    }
+      .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        cursor: pointer;
+        color: #fff;
+        display: flex;
+        align-items: center;
+      }
+      .logo i {
+        color: #ffcc00;
+        margin-right: 8px;
+      }
 
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
-    .nav-links li a {
-      color: #fff;
-      font-weight: 500;
-      position: relative;
-    }
-    .nav-links li a:after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #ffcc00;
-      transition: width 0.3s ease;
-    }
-    .nav-links li a:hover:after {
-      width: 100%;
-    }
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+      }
+      .nav-links li a {
+        color: #fff;
+        font-weight: 500;
+        position: relative;
+      }
+      .nav-links li a:after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #ffcc00;
+        transition: width 0.3s ease;
+      }
+      .nav-links li a:hover:after {
+        width: 100%;
+      }
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-    }
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background: white;
-      transition: all 0.3s ease;
-    }
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+      .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: white;
+        transition: all 0.3s ease;
+      }
 
-    /* Custom font */
-    @font-face {
-      font-family: 'MyCustomFont';
-      src: url('./static/EduNSWACTCursive-VariableFont_wght.ttf');
-    }
+      /* Custom font */
+      @font-face {
+        font-family: "MyCustomFont";
+        src: url("./static/EduNSWACTCursive-VariableFont_wght.ttf");
+      }
 
-    /* Centered 404 content */
-    .error-container {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
-    }
+      /* Centered 404 content */
+      .error-container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+      }
 
-    .error-container h1 {
-      font-size: 8rem;
-      font-family: 'MyCustomFont', cursive;
-      color: #ffcc00;
-      margin-bottom: 20px;
-    }
+      .error-container h1 {
+        font-size: 8rem;
+        font-family: "MyCustomFont", cursive;
+        color: #ffcc00;
+        margin-bottom: 20px;
+      }
 
-    .error-container p {
-      font-size: 1.5rem;
-      margin-bottom: 30px;
-    }
+      .error-container p {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+      }
 
-    .btn {
-      display: inline-block;
-      padding: 12px 28px;
-      background: #ffcc00;
-      color: #000;
-      border-radius: 30px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-    }
-    .btn:hover {
-      background: #fff;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
-  </style>
-</head>
-<body>
-  <nav class="navbar">
-    <a class="logo" href="./index.html"><img src="./Icons/Yellow Stackly.png" alt="" height="40px" width="130px"></a>
-    <ul class="nav-links">
-      <li><a href="./page2.html">Home</a></li>
-          <li><a href="./about.html">About</a></li>
-          <li><a href="./Services.html">Services</a></li>
-          <li><a href="./FAQ.html">FAQ</a></li>
-          <li><a href="./contact.html">Contact</a></li>
-          <li><a href="./signup.html">Sign Up</a></li>
-    </ul>
-    <div class="hamburger" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
+      .btn {
+        display: inline-block;
+        padding: 12px 28px;
+        background: #ffcc00;
+        color: #000;
+        border-radius: 30px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+      }
+      .btn:hover {
+        background: #fff;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a class="logo" href="./index.html"
+        ><img
+          src="./Icons/Yellow Stackly.png"
+          alt=""
+          height="40px"
+          width="130px"
+      /></a>
+      <ul class="nav-links">
+        <li><a href="./page2.html">Home</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./Services.html">Services</a></li>
+        <li><a href="./FAQ.html">FAQ</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+        <li><a href="./signup.html">Sign Up</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <div class="error-container">
+      <h1>404</h1>
+      <p>Oops! This page you are looking for is on processing.....!!!</p>
+      <a href="index.html" class="btn">Back to Home</a>
     </div>
-  </nav>
-
-  <div class="error-container">
-    <h1>404</h1>
-    <p>Oops! This page you are looking for is on processing.....!!!</p>
-    <a href="index.html" class="btn">Back to Home</a>
-  </div>
-</body>
+  </body>
 </html>

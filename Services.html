@@ -313,115 +313,116 @@
       /* =====================
    1024px Media Query
    ===================== */
-@media (max-width: 1024px) {
-  /* Navbar */
-  .navbar {
-    padding: 0.8rem 1.5rem;
-  }
-  .nav-links {
-    gap: 1rem;
-  }
-  .logo img {
-    width: 110px;
-    height: auto;
-  }
+      @media (max-width: 1024px) {
+        /* Navbar */
+        .navbar {
+          padding: 0.8rem 1.5rem;
+        }
+        .nav-links {
+          gap: 1rem;
+        }
+        .logo img {
+          width: 110px;
+          height: auto;
+        }
 
-  /* Services Section */
-  .Services {
-    height: auto; /* allow auto height instead of fixed */
-    padding: 5rem 5% 3rem;
-    margin-top:50px;
-    gap: 40px;
-  }
-  .Services p {
-    width: 100%;
-    max-width: 650px;
-    font-size: 0.95rem;
-    text-align: center;
-  }
+        /* Services Section */
+        .Services {
+          height: auto; /* allow auto height instead of fixed */
+          padding: 5rem 5% 3rem;
+          margin-top: 50px;
+          gap: 40px;
+        }
+        .Services p {
+          width: 100%;
+          max-width: 650px;
+          font-size: 0.95rem;
+          text-align: center;
+        }
 
-  /* Service Boxes Layout */
-  .wholeBox1,
-  .wholeBox2,
-  .wholeBox3,
-  .wholeBox4 {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 2rem;
-  }
+        /* Service Boxes Layout */
+        .wholeBox1,
+        .wholeBox2,
+        .wholeBox3,
+        .wholeBox4 {
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          margin-bottom: 2rem;
+        }
 
-  /* Images */
-  .imgBox1 img,
-  .imgBox2 img,
-  .imgBox3 img,
-  .imgBox4 img {
-    width: 80%;
-    max-width: 500px;
-    height: auto;
-    transform: none; /* remove forced translate */
-  }
+        /* Images */
+        .imgBox1 img,
+        .imgBox2 img,
+        .imgBox3 img,
+        .imgBox4 img {
+          width: 80%;
+          max-width: 500px;
+          height: auto;
+          transform: none; /* remove forced translate */
+        }
 
-  /* Text blocks */
-  .Services .word1,
-  .Services .word2,
-  .Services .word3,
-  .Services .word4 {
-    transform: none;
-    max-width: 600px;
-    text-align: center;
-  }
+        /* Text blocks */
+        .Services .word1,
+        .Services .word2,
+        .Services .word3,
+        .Services .word4 {
+          transform: none;
+          max-width: 600px;
+          text-align: center;
+        }
 
-  .Services h2 {
-    font-size: 1.8rem;
-  }
-}
+        .Services h2 {
+          font-size: 1.8rem;
+        }
+      }
 
-@media (max-width: 375px) {
-  .nav-links {
-    display: none; /* hidden by default */
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: rgba(0, 0, 0, 0.95);
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    gap: 0;
-    padding: 1rem 0;
-  }
+      @media (max-width: 425px) {
+        .nav-links {
+          display: none; /* hidden by default */
+          position: absolute;
+          top: 60px;
+          right: 0;
+          background: rgba(0, 0, 0, 0.95);
+          flex-direction: column;
+          width: 100%;
+          text-align: center;
+          gap: 0;
+          padding: 1rem 0;
+        }
 
-  .nav-links li {
-    margin: 10px 0;
-  }
+        .nav-links li {
+          margin: 10px 0;
+        }
 
-  .nav-links.show {
-    display: flex; /* show when toggled */
-  }
+        .nav-links.show {
+          display: flex; /* show when toggled */
+        }
 
-  .hamburger {
-    display: flex; /* visible in 375px */
-  }
+        .hamburger {
+          display: flex; /* visible in 375px */
+        }
 
-  .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-  .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
- .imgBox1 img, .imgBox2 img, .imgBox3 img, .imgBox4 img{
-  transform: translateX(2rem);
- }
+        .hamburger.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+          opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(5px, -5px);
+        }
+        .imgBox1 img,
+        .imgBox2 img,
+        .imgBox3 img,
+        .imgBox4 img {
+          transform: translateX(2rem);
+        }
 
- .Services{
-  transform: translateY(10px);
- }
-
-}
-
+        .Services {
+          transform: translateY(10px);
+        }
+      }
     </style>
     <nav class="navbar">
       <a class="logo" href="./index.html">
@@ -548,9 +549,9 @@
     </div>
   </body>
   <script>
-  function toggleMenu() {
-    document.querySelector(".nav-links").classList.toggle("show");
-    document.querySelector(".hamburger").classList.toggle("active");
-  }
-</script>
+    function toggleMenu() {
+      document.querySelector(".nav-links").classList.toggle("show");
+      document.querySelector(".hamburger").classList.toggle("active");
+    }
+  </script>
 </html>

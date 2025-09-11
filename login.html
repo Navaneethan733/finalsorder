@@ -14,7 +14,8 @@
 
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-       background: url("./Banners/set-of-restaurant-doodles-food-and-drinks-on-white-background-vector.jpg")no-repeat center center/cover;
+        background: url("./Banners/set-of-restaurant-doodles-food-and-drinks-on-white-background-vector.jpg")
+          no-repeat center center/cover;
         color: #fff;
         line-height: 1.6;
         min-height: 100vh;
@@ -285,60 +286,59 @@
       /* =====================
    Mobile Responsive Navbar (375px and below)
    ===================== */
-@media (max-width: 375px) {
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 55px;
-    right: 0;
-    flex-direction: column;
-    background: rgba(0, 0, 0, 0.95);
-    width: 100%;
-    padding: 1rem 0;
-    border-radius: 0 0 8px 8px;
-    text-align: center;
-  }
+      @media (max-width: 425px) {
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 55px;
+          right: 0;
+          flex-direction: column;
+          background: rgba(0, 0, 0, 0.95);
+          width: 100%;
+          padding: 1rem 0;
+          border-radius: 0 0 8px 8px;
+          text-align: center;
+        }
 
-  .nav-links li {
-    margin: 10px 0;
-  }
+        .nav-links li {
+          margin: 10px 0;
+        }
 
-  .nav-links.active {
-    display: flex;
-  }
+        .nav-links.active {
+          display: flex;
+        }
 
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    z-index: 1100; /* above menu */
-  }
+        .hamburger {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          cursor: pointer;
+          z-index: 1100; /* above menu */
+        }
 
-  .hamburger span {
-    width: 25px;
-    height: 3px;
-    background: #fff;
-    transition: all 0.3s ease;
-  }
+        .hamburger span {
+          width: 25px;
+          height: 3px;
+          background: #fff;
+          transition: all 0.3s ease;
+        }
 
-  /* Animate Hamburger into "X" */
-  .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-  .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
-}
-
+        /* Animate Hamburger into "X" */
+        .hamburger.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+          opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(5px, -5px);
+        }
+      }
     </style>
   </head>
   <body>
     <!-- Navbar -->
-     <nav class="navbar">
+    <nav class="navbar">
       <a class="logo" href="./index.html">
         <img
           src="./Icons/Yellow Stackly.png"
@@ -357,7 +357,7 @@
           </ul>
         </li>
         <li><a href="./about.html">About</a></li>
-         <li><a href="./Services.html">Services</a></li>
+        <li><a href="./Services.html">Services</a></li>
         <li><a href="./FAQ.html">FAQ</a></li>
         <li><a href="./contact.html">Contact</a></li>
         <li><a href="./signup.html">Sign Up</a></li>
@@ -408,12 +408,11 @@
 
     <script>
       function toggleMenu() {
-  const navLinks = document.querySelector(".nav-links");
-  const hamburger = document.querySelector(".hamburger");
-  navLinks.classList.toggle("active");
-  hamburger.classList.toggle("active");
-}
-
+        const navLinks = document.querySelector(".nav-links");
+        const hamburger = document.querySelector(".hamburger");
+        navLinks.classList.toggle("active");
+        hamburger.classList.toggle("active");
+      }
     </script>
   </body>
 </html>

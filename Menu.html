@@ -1,306 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Menu</title>
-  <style>
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background: #fafafa;
-      margin: 0;
-      padding: 0;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #fafafa;
+        margin: 0;
+        padding: 0;
+      }
 
-    .menu-layout {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 20px;
-      padding: 30px;
-    }
-
-    /* Menu Section */
-    .menu-list {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    .menu-heading {
-      margin-bottom: 20px;
-      color: #222;
-    }
-
-    .menu-item {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      padding: 16px 0;
-      border-bottom: 1px solid #eee;
-    }
-
-    .menu-item img {
-      width: 100px;
-      height: 100px;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-
-    .details h3 {
-      margin: 0;
-      color: #333;
-    }
-
-    .details p {
-      margin: 4px 0;
-      font-size: 14px;
-      color: #666;
-    }
-
-    .price {
-      font-weight: bold;
-      color: #111;
-      display: block;
-      margin: 6px 0;
-    }
-
-    .actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .actions button {
-      background: #ff5200;
-      border: none;
-      color: #fff;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .actions button:disabled {
-      opacity: 0.45;
-      cursor: not-allowed;
-    }
-
-    .qty {
-      min-width: 24px;
-      text-align: center;
-      font-weight: bold;
-      display: inline-block;
-    }
-
-    /* Cart Section */
-    .cart-panel {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      position: sticky;
-      top: 80px;
-      height: fit-content;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    .cart-items {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      min-height: 40px;
-    }
-
-    .cart-items li {
-      display: flex;
-      justify-content: space-between;
-      padding: 8px 0;
-      border-bottom: 1px dashed #ddd;
-      font-size: 14px;
-    }
-
-    .cart-footer {
-      margin-top: 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .checkout-btn {
-      background: #20d6b5;
-      border: none;
-      color: #fff;
-      padding: 10px 18px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
       .menu-layout {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+        padding: 30px;
       }
+
+      /* Menu Section */
+      .menu-list {
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .menu-heading {
+        margin-bottom: 20px;
+        color: #222;
+      }
+
+      .menu-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 16px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .menu-item img {
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+
+      .details h3 {
+        margin: 0;
+        color: #333;
+      }
+
+      .details p {
+        margin: 4px 0;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .price {
+        font-weight: bold;
+        color: #111;
+        display: block;
+        margin: 6px 0;
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      .actions button {
+        background: #ff5200;
+        border: none;
+        color: #fff;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .actions button:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      .qty {
+        min-width: 24px;
+        text-align: center;
+        font-weight: bold;
+        display: inline-block;
+      }
+
+      /* Cart Section */
       .cart-panel {
-        position: fixed;
-        bottom: -100%;
-        left: 0;
-        right: 0;
-        height: 50%;
-        border-radius: 12px 12px 0 0;
-        transition: bottom 0.3s ease;
-        z-index: 1000;
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        position: sticky;
+        top: 80px;
+        height: fit-content;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       }
-      .cart-panel.open {
-        bottom: 0;
+
+      .cart-items {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        min-height: 40px;
       }
+
+      .cart-items li {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px dashed #ddd;
+        font-size: 14px;
+      }
+
+      .cart-footer {
+        margin-top: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
       .checkout-btn {
-        width: 100%;
+        background: #20d6b5;
+        border: none;
+        color: #fff;
+        padding: 10px 18px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
       }
-    }
-  </style>
-</head>
-<body>
 
-  <main class="menu-layout">
-    <!-- Menu Section -->
-    <section class="menu-list">
-      <h2 class="menu-heading">🍴 Our Menu</h2>
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .menu-layout {
+          grid-template-columns: 1fr;
+        }
+        .cart-panel {
+          position: fixed;
+          bottom: -100%;
+          left: 0;
+          right: 0;
+          height: 50%;
+          border-radius: 12px 12px 0 0;
+          transition: bottom 0.3s ease;
+          z-index: 1000;
+        }
+        .cart-panel.open {
+          bottom: 0;
+        }
+        .checkout-btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="menu-layout">
+      <!-- Menu Section -->
+      <section class="menu-list">
+        <h2 class="menu-heading">🍴 Our Menu</h2>
 
-      <div class="menu-item" data-name="Cheese Burger" data-price="120">
-        <img src="https://via.placeholder.com/100" alt="Cheese Burger">
-        <div class="details">
-          <h3>Cheese Burger</h3>
-          <p>Juicy patty, melted cheese, fresh veggies</p>
-          <span class="price">₹120</span>
-          <div class="actions">
-            <button class="decrease" aria-label="Decrease">-</button>
-            <span class="qty" aria-live="polite">0</span>
-            <button class="increase" aria-label="Increase">+</button>
+        <div class="menu-item" data-name="Cheese Burger" data-price="120">
+          <img src="https://via.placeholder.com/100" alt="Cheese Burger" />
+          <div class="details">
+            <h3>Cheese Burger</h3>
+            <p>Juicy patty, melted cheese, fresh veggies</p>
+            <span class="price">₹120</span>
+            <div class="actions">
+              <button class="decrease" aria-label="Decrease">-</button>
+              <span class="qty" aria-live="polite">0</span>
+              <button class="increase" aria-label="Increase">+</button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="menu-item" data-name="Paneer Pizza" data-price="250">
-        <img src="https://via.placeholder.com/100" alt="Paneer Pizza">
-        <div class="details">
-          <h3>Paneer Pizza</h3>
-          <p>Soft crust, paneer tikka, extra cheese</p>
-          <span class="price">₹250</span>
-          <div class="actions">
-            <button class="decrease" aria-label="Decrease">-</button>
-            <span class="qty" aria-live="polite">0</span>
-            <button class="increase" aria-label="Increase">+</button>
+        <div class="menu-item" data-name="Paneer Pizza" data-price="250">
+          <img src="https://via.placeholder.com/100" alt="Paneer Pizza" />
+          <div class="details">
+            <h3>Paneer Pizza</h3>
+            <p>Soft crust, paneer tikka, extra cheese</p>
+            <span class="price">₹250</span>
+            <div class="actions">
+              <button class="decrease" aria-label="Decrease">-</button>
+              <span class="qty" aria-live="polite">0</span>
+              <button class="increase" aria-label="Increase">+</button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="menu-item" data-name="Chocolate Cake" data-price="90">
-        <img src="https://via.placeholder.com/100" alt="Chocolate Cake">
-        <div class="details">
-          <h3>Chocolate Cake</h3>
-          <p>Rich, moist, with chocolate ganache</p>
-          <span class="price">₹90</span>
-          <div class="actions">
-            <button class="decrease" aria-label="Decrease">-</button>
-            <span class="qty" aria-live="polite">0</span>
-            <button class="increase" aria-label="Increase">+</button>
+        <div class="menu-item" data-name="Chocolate Cake" data-price="90">
+          <img src="https://via.placeholder.com/100" alt="Chocolate Cake" />
+          <div class="details">
+            <h3>Chocolate Cake</h3>
+            <p>Rich, moist, with chocolate ganache</p>
+            <span class="price">₹90</span>
+            <div class="actions">
+              <button class="decrease" aria-label="Decrease">-</button>
+              <span class="qty" aria-live="polite">0</span>
+              <button class="increase" aria-label="Increase">+</button>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Cart Section -->
-    <aside class="cart-panel" id="cartPanel">
-      <h2>Your Cart</h2>
-      <ul class="cart-items" id="cartItems"></ul>
-      <div class="cart-footer">
-        <p>Total: ₹<span id="total-amount">0</span></p>
-        <button class="checkout-btn">Checkout</button>
-      </div>
-    </aside>
-  </main>
+      <!-- Cart Section -->
+      <aside class="cart-panel" id="cartPanel">
+        <h2>Your Cart</h2>
+        <ul class="cart-items" id="cartItems"></ul>
+        <div class="cart-footer">
+          <p>Total: ₹<span id="total-amount">0</span></p>
+          <button class="checkout-btn">Checkout</button>
+        </div>
+      </aside>
+    </main>
 
-  <!-- Fixed single script (corrected) -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      let cart = [];
-      const totalAmountEl = document.getElementById("total-amount");
-      const cartList = document.getElementById("cartItems");
+    <!-- Fixed single script (corrected) -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let cart = [];
+        const totalAmountEl = document.getElementById("total-amount");
+        const cartList = document.getElementById("cartItems");
 
-      // initialize each menu-item's buttons and qty
-      document.querySelectorAll(".menu-item").forEach(item => {
-        const name = item.dataset.name;
-        const price = parseInt(item.dataset.price, 10);
-        const qtySpan = item.querySelector(".qty");
-        const incBtn = item.querySelector(".increase");
-        const decBtn = item.querySelector(".decrease");
+        // initialize each menu-item's buttons and qty
+        document.querySelectorAll(".menu-item").forEach((item) => {
+          const name = item.dataset.name;
+          const price = parseInt(item.dataset.price, 10);
+          const qtySpan = item.querySelector(".qty");
+          const incBtn = item.querySelector(".increase");
+          const decBtn = item.querySelector(".decrease");
 
-        let qty = 0;
-        updateButtons();
-
-        incBtn.addEventListener("click", () => {
-          qty++;
-          qtySpan.textContent = qty;
+          let qty = 0;
           updateButtons();
-          updateCart(name, price, qty);
-        });
 
-        decBtn.addEventListener("click", () => {
-          if (qty > 0) {
-            qty--;
+          incBtn.addEventListener("click", () => {
+            qty++;
             qtySpan.textContent = qty;
             updateButtons();
             updateCart(name, price, qty);
+          });
+
+          decBtn.addEventListener("click", () => {
+            if (qty > 0) {
+              qty--;
+              qtySpan.textContent = qty;
+              updateButtons();
+              updateCart(name, price, qty);
+            }
+          });
+
+          function updateButtons() {
+            decBtn.disabled = qty === 0;
           }
         });
 
-        function updateButtons() {
-          decBtn.disabled = (qty === 0);
+        // add/update/remove item in cart
+        function updateCart(name, price, qty) {
+          const existing = cart.find((i) => i.name === name);
+
+          if (qty === 0) {
+            // remove if exists
+            if (existing) {
+              cart = cart.filter((i) => i.name !== name);
+            }
+          } else {
+            if (existing) {
+              existing.qty = qty;
+            } else {
+              cart.push({ name, price, qty });
+            }
+          }
+          renderCart();
+        }
+
+        function renderCart() {
+          cartList.innerHTML = "";
+          let total = 0;
+
+          if (cart.length === 0) {
+            const li = document.createElement("li");
+            li.textContent = "Your cart is empty";
+            li.style.fontStyle = "italic";
+            cartList.appendChild(li);
+          } else {
+            cart.forEach((item) => {
+              total += item.price * item.qty;
+              const li = document.createElement("li");
+              li.innerHTML = `<span>${item.name} x ${item.qty}</span><span>₹${
+                item.price * item.qty
+              }</span>`;
+              cartList.appendChild(li);
+            });
+          }
+
+          totalAmountEl.textContent = total;
         }
       });
-
-      // add/update/remove item in cart
-      function updateCart(name, price, qty) {
-        const existing = cart.find(i => i.name === name);
-
-        if (qty === 0) {
-          // remove if exists
-          if (existing) {
-            cart = cart.filter(i => i.name !== name);
-          }
-        } else {
-          if (existing) {
-            existing.qty = qty;
-          } else {
-            cart.push({ name, price, qty });
-          }
-        }
-        renderCart();
-      }
-
-      function renderCart() {
-        cartList.innerHTML = "";
-        let total = 0;
-
-        if (cart.length === 0) {
-          const li = document.createElement("li");
-          li.textContent = "Your cart is empty";
-          li.style.fontStyle = "italic";
-          cartList.appendChild(li);
-        } else {
-          cart.forEach(item => {
-            total += item.price * item.qty;
-            const li = document.createElement("li");
-            li.innerHTML = `<span>${item.name} x ${item.qty}</span><span>₹${item.price * item.qty}</span>`;
-            cartList.appendChild(li);
-          });
-        }
-
-        totalAmountEl.textContent = total;
-      }
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
