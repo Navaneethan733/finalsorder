@@ -539,6 +539,17 @@ footer {
   }
 }
 
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20rem) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-20rem) scale(1);
+  }
+}
+
 /* Media Queries */
 @media (max-width: 1024px) {
   .navbar {
@@ -546,213 +557,23 @@ footer {
   }
   .search-box {
     width: 24rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 20px;
-    padding: 3px 8px;
-    background: #ffffff;
   }
   .center-screen {
     transform: translateY(2rem);
   }
   .Deals {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     transform: translateX(25rem) translateY(-5rem);
   }
-
   .button-wrap {
     transform: translateY(-17rem);
   }
-
   .banner .poster img {
-    width: 80%;
     width: 400px;
   }
 }
 
-@media (max-width: 768px) {
-  /* Navbar */
-  .navbar {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0.8rem 1rem;
-  }
-
-  .search-box {
-    width: 200px;
-    margin: 0 auto;
-  }
-
-  .search-box input {
-    width: 140px;
-    font-size: 0.8rem;
-  }
-
-  /* Video - prevent overflow */
-  #myVideo {
-    width: 100%;
-    height: auto;
-  }
-
-  /* Hero Buttons */
-  .button-wrap {
-    margin-top: -2rem;
-    flex-wrap: wrap;
-    gap: 10px;
-    transform: none;
-  }
-
-  .icon-button {
-    font-size: 14px;
-    padding: 10px 16px;
-  }
-
-  /* Delivery & Takeaway Cards */
-  .center-screen {
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 1rem;
-  }
-
-  .delivery,
-  .takeaway {
-    width: 90%;
-    max-width: 320px;
-    height: auto;
-    padding: 15px;
-    transform: none;
-    margin: 0 auto;
-  }
-
-  /* Sentence */
-  .sentence {
-    font-size: 1.4rem;
-    margin: 1rem auto;
-    text-align: center;
-    transform: none;
-  }
-
-  /* Banner Section */
-  .banner {
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 1rem;
-    transform: none;
-  }
-
-  .banner .poster img {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-  }
-
-  /* Offers Grid */
-  .offers {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 20px;
-    padding: 15px;
-    height: auto;
-  }
-
-  .pic img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-  }
-
-  /* Footer */
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    text-align: center;
-    padding: 20px;
-  }
-
-  .social-icons {
-    justify-content: center;
-  }
-
-  /* Floating Button */
-  .floating-order-btn {
-    bottom: 15px;
-    right: 15px;
-    font-size: 0.85rem;
-    padding: 0.7rem 1rem;
-  }
-}
-
-@media (max-width: 425px) {
-  body {
-    overflow-x: hidden;
-  }
-
-  .hero-content h1 {
-    font-size: 24px;
-    text-align: center;
-  }
-
-  .hero-content p {
-    margin-top: 8px;
-    font-size: 16px;
-    text-align: center;
-  }
-
-  .delivery,
-  .takeaway {
-    height: auto;
-    min-height: 120px;
-    padding: 12px 15px;
-    margin: 10px 0;
-    transform: none;
-  }
-
-  .sentence {
-    margin: 15px 0;
-    text-align: center;
-    font-size: 14px;
-    transform: none;
-  }
-
-  .banner {
-    flex-direction: column;
-    margin-top: 20px;
-    align-items: center;
-    gap: 15px;
-    transform: none;
-  }
-
-  .banner .poster img {
-    height: 140px;
-    width: 100%;
-    max-width: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-
-  .button-wrap {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    transform: none;
-  }
-
-  .social-icons {
-    justify-content: center;
-    margin-top: 15px;
-  }
-
-  .footer-bottom {
-    font-size: 12px;
-    padding: 10px;
-  }
-}
-
 @media (max-width: 375px) {
- body {
+  body {
     overflow-x: hidden;
   }
 
@@ -830,18 +651,6 @@ footer {
     transition: all 0.3s ease;
   }
 
-  /* Animation for dropdown */
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-}
   /* Background Video */
   #myVideo {
     position: fixed;
@@ -1018,45 +827,15 @@ footer {
     overflow-x: hidden;
   }
 
-  * {
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-}
-
-@media (max-width: 600px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: #050505;
-    width: 200px;
-    padding: 12px;
-    border-radius: 8px;
-    gap: 10px;
-    z-index: 999;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .hamburger {
-    display: flex;
-    cursor: pointer;
-  }
-}
-
-/* Add missing animation */
-@keyframes popIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20rem) scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(-20rem) scale(1);
+  /* Animation for dropdown */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
