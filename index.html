@@ -32,11 +32,11 @@
         </div>
         <ul class="nav-links">
           <li class="dropdown">
-          <a href="#">Home</a>
-          <ul class="dropdown-content">
-            <li><a href="./page2.html">Home 2</a></li>
-          </ul>
-        </li>
+            <a href="#" class="dropdown-toggle">Home</a>
+            <ul class="dropdown-content">
+              <li><a href="./page2.html">Home 2</a></li>
+            </ul>
+          </li>
           <li><a href="./about.html">About</a></li>
           <li><a href="./Services.html">Services</a></li>
           <li><a href="./FAQ.html">FAQ</a></li>
@@ -214,14 +214,23 @@
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
-      function toggleMenu() {
-        document.querySelector(".nav-links").classList.toggle("show");
-      }
+     function toggleMenu() {
+    document.querySelector(".nav-links").classList.toggle("show");
+  }
 
-      AOS.init({
-        duration: 1000,
-        once: true,
-      });
+  // Enable dropdown toggle on mobile
+  document.querySelectorAll(".dropdown-toggle").forEach(item => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      const parent = item.parentElement;
+      parent.classList.toggle("open");
+    });
+  });
+
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
     </script>
   </body>
 </html>

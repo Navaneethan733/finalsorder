@@ -700,6 +700,25 @@ footer {
     transition: all 0.3s ease;
   }
 
+  .dropdown-content {
+  display: none;
+  position: static;   /* not absolute in mobile */
+  background: transparent;
+  box-shadow: none;
+  padding-left: 10px;
+}
+
+.dropdown-content li a {
+  font-size: 0.8rem;
+  color: #fff;
+}
+
+.dropdown.open .dropdown-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
   /* Background Video */
   #myVideo {
     position: fixed;
