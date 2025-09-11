@@ -372,6 +372,105 @@
     font-size: 3.5rem; /* smaller emojis */
   }
 }
+@media (max-width: 375px) {
+  /* Navbar */
+  .navbar {
+    width: 100%;  /* full width */
+    padding: 0.8rem 1rem;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.95);
+    width: 100%;
+    padding: 1rem 0;
+    border-radius: 0 0 8px 8px;
+    text-align: center;
+    transform: translateY(-11px);
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1100;
+    transform: translatex(-2rem);
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    transition: all 0.3s ease;
+  }
+
+  /* Animate Hamburger into "X" */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+   .dropdown:hover .dropdown-options {
+          display: block;
+        }
+      }
+
+      /* Click toggle for mobile */
+      .dropdown.active .dropdown-options {
+        display: block;
+      }
+
+  /* FAQ heading box */
+  .faq {
+    transform: none;       /* remove forced translate */
+    margin: 6rem auto 2rem;
+    justify-content: center;
+  }
+
+  /* FAQ container */
+  .faq-container {
+    max-width: 95%;
+    transform: none;
+    margin: 1rem auto;
+  }
+
+  .faq-item h2 {
+    width: auto;
+    font-size: 1rem;
+    padding: 10px 14px;
+  }
+
+  .faq-question {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .faq-answer {
+    padding: 0 10px;
+  }
+
+  /* Floating emojis smaller */
+  .floating-bg span {
+    font-size: 2.5rem;
+  }
+
 
     </style>
   </head>
@@ -645,6 +744,14 @@
           q.classList.toggle("active");
         });
       });
+
+      function toggleMenu() {
+  const navLinks = document.querySelector(".nav-links");
+  const hamburger = document.querySelector(".hamburger");
+  navLinks.classList.toggle("active");
+  hamburger.classList.toggle("active");
+}
+
 
       AOS.init({
         duration: 1000,

@@ -107,7 +107,7 @@
       }
 
       .hamburger {
-        display: none;
+        display: flex;
         flex-direction: column;
         gap: 5px;
         cursor: pointer;
@@ -258,6 +258,55 @@
           transform: translateY(0);
         }
       }
+
+      @media (max-width: 375px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.95);
+    width: 100%;
+    padding: 1rem 0;
+    border-radius: 0 0 8px 8px;
+    text-align: center;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1100; /* stays above menu */
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    transition: all 0.3s ease;
+  }
+
+  /* Animate Hamburger into "X" */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
     </style>
   </head>
   <body>
@@ -287,11 +336,11 @@
         <li><a href="./signup.html">Sign Up</a></li>
       </ul>
 
-      <div class="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
     </nav>
 
     <!-- Signup box -->
@@ -341,4 +390,13 @@
       </form>
     </div>
   </body>
+  <script>
+
+    function toggleMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  const hamburger = document.querySelector('.hamburger');
+  navLinks.classList.toggle('active');
+  hamburger.classList.toggle('active');
+}
+  </script>
 </html>

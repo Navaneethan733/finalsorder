@@ -752,7 +752,7 @@ footer {
 }
 
 @media (max-width: 375px) {
-  body {
+ body {
     overflow-x: hidden;
   }
 
@@ -761,15 +761,18 @@ footer {
     padding: 0.6rem 1rem;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     max-width: 100%;
   }
 
+  /* Logo */
   .logo img {
-    width: 90px;
+    width: 85px;
     height: auto;
   }
 
+  /* Search box */
   .search-box {
     flex: 1;
     max-width: 140px;
@@ -778,44 +781,67 @@ footer {
 
   .search-box input {
     width: 100%;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
 
   .search-box button {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
 
+  /* Nav Links (Dropdown) */
   .nav-links {
     display: none;
     flex-direction: column;
     position: absolute;
     top: 55px;
-    right: 15px;
-    background: #000;
-    width: 90%;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.95);
+    width: 85%;
     max-width: 220px;
-    padding: 10px;
+    padding: 12px;
     border-radius: 8px;
-    gap: 10px;
+    gap: 12px;
     z-index: 1000;
+    animation: slideDown 0.3s ease;
   }
 
   .nav-links.show {
     display: flex;
   }
 
+  .nav-links li a {
+    font-size: 0.85rem;
+    padding: 6px;
+  }
+
+  /* Hamburger */
   .hamburger {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    cursor: pointer;
+    margin-left: 10px;
   }
 
   .hamburger span {
     width: 22px;
     height: 2px;
     background: #fff;
+    transition: all 0.3s ease;
   }
 
+  /* Animation for dropdown */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
   /* Background Video */
   #myVideo {
     position: fixed;
@@ -829,13 +855,13 @@ footer {
 
   /* Hero - REDUCED GAP */
   .hero {
-    height: auto;
+    height: 800px;
     min-height: 100vh;
     padding: 60px 0 20px;
   }
 
   .hero-content {
-    transform: translateY(-2rem) !important; /* Reduced from -5rem */
+    transform: translateY(-19rem) !important; /* Reduced from -5rem */
     margin-bottom: 1rem;
   }
 
@@ -847,7 +873,7 @@ footer {
   }
 
   .hero-content p {
-    font-size: 14px;
+    font-size: 12px;
     padding: 6px 8px;
     text-align: center;
     margin: 5px auto;
@@ -856,7 +882,7 @@ footer {
   /* Buttons - MOVED CLOSER */
   .button-wrap {
     margin-top: 0;
-    transform: translateY(-10rem) !important; /* Reduced from -19rem */
+    transform: translateY(-39rem) !important; /* Reduced from -19rem */
     gap: 8px;
     justify-content: center;
   }
@@ -878,11 +904,11 @@ footer {
 
   .delivery,
   .takeaway {
-    width: 90%;
+    width: 70%;
     padding: 10px;
     min-height: 100px;
     font-size: 13px;
-    transform: translateY(-12rem) !important; /* Adjusted positioning */
+    transform: translateY(-31rem) !important; /* Adjusted positioning */
   }
 
   .delivery:hover,
@@ -895,12 +921,12 @@ footer {
     font-size: 14px;
     margin: -10rem auto 1rem; /* Adjusted positioning */
     text-align: center;
-    transform: none;
+    transform: translateY(-18rem);
   }
 
   /* Banner */
   .banner {
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
     margin-top: -8rem; /* Reduced gap */
     transform: none;
@@ -909,22 +935,24 @@ footer {
 
   .banner .poster img {
     width: 90%;
-    max-width: 300px;
-    height: auto;
+    max-width: 200px;
+    height: 100px;
+    transform: translateY(-9rem) translateX(1rem);
   }
 
   /* View All Deals */
   .viewAll-deal {
-    transform: translateY(-6rem) !important; /* Reduced gap */
+    transform: translateY(-7rem) !important; /* Reduced gap */
     margin: 1rem auto;
+    font-size: 13px;
   }
 
   /* Offers Section - FIXED OVERFLOW */
   .Deals {
-    transform: none !important;
+    transform: translateY(-1rem) !important;
     margin: -4rem auto 1rem; /* Adjusted positioning */
     width: 150px;
-    font-size: large;
+    font-size: 15px;
   }
 
   .offers {
@@ -934,6 +962,7 @@ footer {
     height: auto !important;
     margin-top: -2rem;
     overflow: hidden;
+    transform: translateY(2.5rem);
   }
 
   .pic {

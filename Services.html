@@ -377,6 +377,51 @@
   }
 }
 
+@media (max-width: 375px) {
+  .nav-links {
+    display: none; /* hidden by default */
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    gap: 0;
+    padding: 1rem 0;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .nav-links.show {
+    display: flex; /* show when toggled */
+  }
+
+  .hamburger {
+    display: flex; /* visible in 375px */
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+ .imgBox1 img, .imgBox2 img, .imgBox3 img, .imgBox4 img{
+  transform: translateX(2rem);
+ }
+
+ .Services{
+  transform: translateY(10px);
+ }
+
+}
+
     </style>
     <nav class="navbar">
       <a class="logo" href="./index.html">
@@ -502,4 +547,10 @@
       </div>
     </div>
   </body>
+  <script>
+  function toggleMenu() {
+    document.querySelector(".nav-links").classList.toggle("show");
+    document.querySelector(".hamburger").classList.toggle("active");
+  }
+</script>
 </html>
