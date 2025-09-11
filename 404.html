@@ -155,6 +155,93 @@
         transform: translateY(-3px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       }
+
+      /* ===== Responsive Navbar for 425px ===== */
+      @media (max-width: 425px) {
+        body {
+          overflow-x: hidden;
+        }
+
+        /* Navbar adjustments */
+        .navbar {
+          padding: 0.6rem 1rem;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        /* Logo smaller for mobile */
+        .logo img {
+          width: 100px;
+          height: auto;
+        }
+
+        /* Hide nav links by default */
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          background: rgba(0, 0, 0, 0.95);
+          position: absolute;
+          top: 55px;
+          right: 10px;
+          width: 85%;
+          max-width: 250px;
+          padding: 15px;
+          border-radius: 8px;
+          gap: 12px;
+          animation: slideDown 0.3s ease;
+          z-index: 1001;
+        }
+
+        .nav-links.show {
+          display: flex;
+        }
+
+        .nav-links li a {
+          font-size: 0.9rem;
+          padding: 8px;
+        }
+
+        /* Hamburger visible */
+        .hamburger {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          cursor: pointer;
+          z-index: 1100;
+        }
+
+        .hamburger span {
+          width: 25px;
+          height: 3px;
+          background: white;
+          border-radius: 3px;
+          transition: all 0.3s ease;
+        }
+
+        /* Animate hamburger → X */
+        .hamburger.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+          opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Animation for dropdown */
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      }
     </style>
   </head>
   <body>
@@ -167,7 +254,7 @@
           width="130px"
       /></a>
       <ul class="nav-links">
-        <li><a href="./page2.html">Home</a></li>
+        <li><a href="./index.html">Home</a></li>
         <li><a href="./about.html">About</a></li>
         <li><a href="./Services.html">Services</a></li>
         <li><a href="./FAQ.html">FAQ</a></li>
@@ -187,4 +274,10 @@
       <a href="index.html" class="btn">Back to Home</a>
     </div>
   </body>
+  <script>
+    function toggleMenu() {
+      document.querySelector(".nav-links").classList.toggle("show");
+      document.querySelector(".hamburger").classList.toggle("active");
+    }
+  </script>
 </html>
