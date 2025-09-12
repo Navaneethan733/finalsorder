@@ -3,115 +3,274 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Menu</title>
+    <title>Food Menu</title>
     <style>
-      body {
-        font-family: "Segoe UI", sans-serif;
-        background: #fafafa;
+      * {
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
       }
-
-      .menu-layout {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 20px;
-        padding: 30px;
-      }
-
-      /* Menu Section */
-      .menu-list {
-        background: #fff;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      }
-
-      .menu-heading {
-        margin-bottom: 20px;
-        color: #222;
-      }
-
-      .menu-item {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        padding: 16px 0;
-        border-bottom: 1px solid #eee;
-      }
-
-      .menu-item img {
-        width: 100px;
-        height: 100px;
-        border-radius: 10px;
-        object-fit: cover;
-      }
-
-      .details h3 {
-        margin: 0;
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: url(./Banners/set-of-restaurant-doodles-food-and-drinks-on-white-background-vector.jpg);
         color: #333;
       }
 
-      .details p {
-        margin: 4px 0;
-        font-size: 14px;
-        color: #666;
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: rgba(0, 0, 0, 0.9);
+        color: #fff;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        transition: all 0.3s ease;
+        /* overflow-x: hidden;  ❌ Remove this */
+        overflow: visible; /* ✅ Allow dropdown to show outside */
       }
 
-      .price {
+      .navbar.scrolled {
+        padding: 0.7rem 2rem;
+        background: rgba(0, 0, 0, 0.95);
+      }
+
+      .logo {
+        font-size: 1.8rem;
         font-weight: bold;
-        color: #111;
-        display: block;
-        margin: 6px 0;
-      }
-
-      .actions {
+        cursor: pointer;
+        color: #fff;
         display: flex;
         align-items: center;
-        gap: 8px;
-        margin-top: 8px;
+        text-decoration: none;
       }
 
+      .logo i {
+        color: #ffcc00;
+        margin-right: 8px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+        align-items: center;
+      }
+
+      .nav-links li a {
+        color: #fff;
+        font-weight: 500;
+        transition: color 0.3s;
+        position: relative;
+        text-decoration: none;
+      }
+
+      .nav-links li a:after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #ffcc00;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links li a:hover:after {
+        width: 100%;
+      }
+
+      .nav-links li a:hover {
+        color: #ffcc00;
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: white;
+        transition: all 0.3s ease;
+      }
+      /* Dropdown container */
+      .dropdown {
+        position: relative;
+      }
+
+      /* Main dropdown link */
+      .dropdown > a {
+        padding: 10px 14px;
+        color: #fff;
+        display: block;
+        cursor: pointer;
+      }
+
+      /* Submenu */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #000;
+        min-width: 160px;
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        z-index: 2000; /* higher than navbar */
+      }
+
+      /* Submenu list items */
+      .dropdown-content li {
+        list-style: none;
+      }
+
+      .dropdown-content li a {
+        display: block;
+        padding: 10px 14px;
+        color: #fff;
+        transition: background 0.3s;
+        white-space: nowrap;
+      }
+
+      .dropdown-content li a:hover {
+        background: #ffcc00;
+        color: #000;
+      }
+
+      /* Show submenu on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      /* Filter Buttons */
+      .buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 20px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        margin-top: 73px;
+      }
+      .buttons button {
+        padding: 10px 18px;
+        border: none;
+        border-radius: 20px;
+        background: #fff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+      .buttons button:hover,
+      .buttons button.active {
+        background: #ffcc00;
+        color: #fff;
+      }
+
+      /* Layout */
+      .menu-layout {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      /* Grid Menu */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+      }
+      .card {
+        background: #ffcc00;
+        border-radius: 12px;
+        padding: 15px;
+        text-align: center;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+      .card img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+      .card h3 {
+        margin: 6px 0;
+        font-size: 18px;
+      }
+      .card p {
+        font-size: 13px;
+        color: #555;
+        margin-bottom: 6px;
+      }
+      .card .price {
+        font-weight: bold;
+        color: #000000;
+        display: block;
+        margin-bottom: 10px;
+      }
+      .actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+      }
       .actions button {
-        background: #ff5200;
+        background: #000000;
         border: none;
         color: #fff;
         padding: 6px 12px;
         border-radius: 6px;
         font-size: 16px;
         cursor: pointer;
+        transition: 0.3s;
       }
-
       .actions button:disabled {
         opacity: 0.45;
         cursor: not-allowed;
       }
-
       .qty {
-        min-width: 24px;
-        text-align: center;
+        min-width: 20px;
         font-weight: bold;
-        display: inline-block;
+        text-align: center;
       }
 
-      /* Cart Section */
+      /* Cart */
       .cart-panel {
-        background: #fff;
+        background: #ffcc00;
         padding: 20px;
         border-radius: 12px;
-        position: sticky;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        /* position: sticky; */
         top: 80px;
         height: fit-content;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       }
-
+      .cart-panel h2 {
+        margin-bottom: 15px;
+      }
       .cart-items {
         list-style: none;
         padding: 0;
         margin: 0;
         min-height: 40px;
       }
-
       .cart-items li {
         display: flex;
         justify-content: space-between;
@@ -119,16 +278,14 @@
         border-bottom: 1px dashed #ddd;
         font-size: 14px;
       }
-
       .cart-footer {
         margin-top: 16px;
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
-
       .checkout-btn {
-        background: #20d6b5;
+        background: #000000;
         border: none;
         color: #fff;
         padding: 10px 18px;
@@ -137,7 +294,7 @@
         font-weight: bold;
       }
 
-      /* Mobile Responsive */
+      /* Responsive */
       @media (max-width: 768px) {
         .menu-layout {
           grid-template-columns: 1fr;
@@ -159,53 +316,416 @@
           width: 100%;
         }
       }
+
+      /* ✅ Media query for 425px */
+      @media (max-width: 425px) {
+        /* Navbar */
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          width: 100%;
+          flex-direction: column;
+          background: rgba(0, 0, 0, 0.95);
+          text-align: center;
+          padding: 1rem 0;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+
+        /* Filter buttons - make scrollable */
+        .buttons {
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          gap: 8px;
+          padding: 10px;
+          margin-top: 65px;
+        }
+
+        .buttons button {
+          flex: 0 0 auto;
+          font-size: 14px;
+          padding: 8px 14px;
+        }
+
+        /* Grid */
+        .grid {
+          grid-template-columns: 1fr; /* single column */
+        }
+
+        .card img {
+          height: 160px;
+        }
+
+        /* Cart */
+        .cart-panel {
+          align-items: flex-end;
+          left: 0;
+          right: 0;
+          height: 30%;
+          width: 250px;
+          border-radius: 12px 12px 0 0;
+          transition: bottom 0.3s ease;
+          z-index: 1000;
+          transform: translateY(19rem) translateX(11rem);
+        }
+
+        .cart-panel.open {
+          bottom: 0;
+        }
+
+        .checkout-btn {
+          width: 100%;
+        }
+      }
     </style>
   </head>
   <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <a class="logo" href="./index.html">
+        <img
+          src="./Icons/Yellow Stackly.png"
+          alt="Logo"
+          height="40"
+          width="130"
+        />
+      </a>
+
+      <ul class="nav-links">
+        <li class="dropdown">
+          <a href="#">Home</a>
+          <ul class="dropdown-content">
+            <li><a href="./index.html">Home 1</a></li>
+            <li><a href="./page2.html">Home 2</a></li>
+          </ul>
+        </li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./Services.html">Services</a></li>
+        <li><a href="./FAQ.html">FAQ</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+        <li><a href="./signup.html">Sign Up</a></li>
+      </ul>
+
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+    <!-- Filter Buttons -->
+    <div class="buttons">
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="starters">Starters</button>
+      <button class="filter-btn" data-category="main-course">
+        Main Course
+      </button>
+      <button class="filter-btn" data-category="desserts">Desserts</button>
+      <button class="filter-btn" data-category="drinks">Drinks</button>
+      <button class="filter-btn" data-category="specials">Specials</button>
+    </div>
+
     <main class="menu-layout">
       <!-- Menu Section -->
-      <section class="menu-list">
-        <h2 class="menu-heading">🍴 Our Menu</h2>
-
-        <div class="menu-item" data-name="Cheese Burger" data-price="120">
-          <img src="https://via.placeholder.com/100" alt="Cheese Burger" />
-          <div class="details">
-            <h3>Cheese Burger</h3>
-            <p>Juicy patty, melted cheese, fresh veggies</p>
-            <span class="price">₹120</span>
-            <div class="actions">
-              <button class="decrease" aria-label="Decrease">-</button>
-              <span class="qty" aria-live="polite">0</span>
-              <button class="increase" aria-label="Increase">+</button>
-            </div>
+      <section class="grid" id="menuGrid">
+        <!-- Starters -->
+        <div
+          class="card menu-item"
+          data-name="Paneer Tikka"
+          data-price="180"
+          data-category="starters"
+        >
+          <img src="./assets/Paneer Tikka.webp" alt="Paneer Tikka" />
+          <h3>Paneer Tikka</h3>
+          <p>Grilled cottage cheese with spices</p>
+          <span class="price">₹180</span>
+          <div class="actions">
+            <button class="decrease">-</button>
+            <span class="qty">0</span>
+            <button class="increase">+</button>
           </div>
         </div>
 
-        <div class="menu-item" data-name="Paneer Pizza" data-price="250">
-          <img src="https://via.placeholder.com/100" alt="Paneer Pizza" />
-          <div class="details">
-            <h3>Paneer Pizza</h3>
-            <p>Soft crust, paneer tikka, extra cheese</p>
-            <span class="price">₹250</span>
-            <div class="actions">
-              <button class="decrease" aria-label="Decrease">-</button>
-              <span class="qty" aria-live="polite">0</span>
-              <button class="increase" aria-label="Increase">+</button>
-            </div>
+        <div
+          class="card menu-item"
+          data-name="Spring Rolls"
+          data-price="120"
+          data-category="starters"
+        >
+          <img src="./assets/Spring Roll.webp" alt="Spring Rolls" />
+          <h3>Spring Rolls</h3>
+          <p>Crispy vegetable spring rolls</p>
+          <span class="price">₹120</span>
+          <div class="actions">
+            <button class="decrease">-</button>
+            <span class="qty">0</span>
+            <button class="increase">+</button>
           </div>
         </div>
 
-        <div class="menu-item" data-name="Chocolate Cake" data-price="90">
-          <img src="https://via.placeholder.com/100" alt="Chocolate Cake" />
-          <div class="details">
-            <h3>Chocolate Cake</h3>
-            <p>Rich, moist, with chocolate ganache</p>
-            <span class="price">₹90</span>
-            <div class="actions">
-              <button class="decrease" aria-label="Decrease">-</button>
-              <span class="qty" aria-live="polite">0</span>
-              <button class="increase" aria-label="Increase">+</button>
-            </div>
+        <!-- Main Course -->
+        <div
+          class="card menu-item"
+          data-name="Cheese Burger"
+          data-price="120"
+          data-category="main-course"
+        >
+          <img src="./assets/Chees Burger.jpg" alt="Cheese Burger" />
+          <h3>Cheese Burger</h3>
+          <p>Juicy patty, melted cheese, fresh veggies</p>
+          <span class="price">₹120</span>
+          <div class="actions">
+            <button class="decrease">-</button>
+            <span class="qty">0</span>
+            <button class="increase">+</button>
+          </div>
+        </div>
+
+        <div
+          class="card menu-item"
+          data-name="Paneer Pizza"
+          data-price="250"
+          data-category="main-course"
+        >
+          <img src="./assets/Paneer Pizza.jfif" alt="Paneer Pizza" />
+          <h3>Paneer Pizza</h3>
+          <p>Soft crust, paneer tikka, extra cheese</p>
+          <span class="price">₹250</span>
+          <div class="actions">
+            <button class="decrease">-</button>
+            <span class="qty">0</span>
+            <button class="increase">+</button>
+          </div>
+        </div>
+
+        <div
+          class="card menu-item"
+          data-name="Butter Chicken"
+          data-price="280"
+          data-category="main-course"
+        >
+          <img src="./assets/Butter Chicken.jfif" alt="Butter Chicken" />
+          <h3>Butter Chicken</h3>
+          <p>Creamy tomato-based curry</p>
+          <span class="price">₹280</span>
+          <div class="actions">
+            <button class="decrease">-</button>
+            <span class="qty">0</span>
+            <button class="increase">+</button>
+          </div>
+        </div>
+
+        <div
+          class="card menu-item"
+          data-name="Butter Chicken"
+          data-price="280"
+          data-category="main-course"
+        >
+          <img src="./assets/chicken-briyani.webp" alt="Butter Chicken" />
+          <h3>Briyani</h3>
+          <p>made with rice, meat or seafood, and spices</p>
+          <span class="price">₹250</span>
+          <div class="actions">
+            <button class="decrease">-</button>
+            <span class="qty">0</span>
+            <button class="increase">+</button>
+          </div>
+        </div>
+
+        <div
+          class="card menu-item"
+          data-name="Butter Chicken"
+          data-price="280"
+          data-category="main-course"
+        >
+          <img src="./assets/fried-20rice.webp" alt="Butter Chicken" />
+          <h3>Fride Rice</h3>
+          <p>eggs, vegetables, seafood, or meat</p>
+          <span class="price">₹190</span>
+          <div class="actions">
+            <button class="decrease">-</button>
+            <span class="qty">0</span>
+            <button class="increase">+</button>
+          </div>
+        </div>
+
+        <div
+          class="card menu-item"
+          data-name="Butter Chicken"
+          data-price="280"
+          data-category="main-course"
+        >
+          <img src="./assets/Noodels.jpeg" alt="Butter Chicken" />
+          <h3>Noodels</h3>
+          <p>rolled flat and cut, stretched, or extruded</p>
+          <span class="price">₹180</span>
+          <div class="actions">
+            <button class="decrease">-</button>
+            <span class="qty">0</span>
+            <button class="increase">+</button>
+          </div>
+        </div>
+
+        <!-- Desserts -->
+        <div
+          class="card menu-item"
+          data-name="Chocolate Cake"
+          data-price="90"
+          data-category="desserts"
+        >
+          <img src="./assets/Chocolate Cake.jpg" alt="Chocolate Cake" />
+          <h3>Chocolate Cake</h3>
+          <p>Rich, moist, with chocolate ganache</p>
+          <span class="price">₹90</span>
+          <div class="actions">
+            <button class="decrease">-</button>
+            <span class="qty">0</span>
+            <button class="increase">+</button>
+          </div>
+        </div>
+
+        <div
+          class="card menu-item"
+          data-name="Chocolate Cake"
+          data-price="90"
+          data-category="desserts"
+        >
+          <img src="./assets/Desert/Strawbery.jpg" alt="Chocolate Cake" />
+          <h3>strawberry Cake</h3>
+          <p>Rich, moist, with chocolate ganache</p>
+          <span class="price">₹100</span>
+          <div class="actions">
+            <button class="decrease">-</button>
+            <span class="qty">0</span>
+            <button class="increase">+</button>
+          </div>
+        </div>
+
+        <div
+          class="card menu-item"
+          data-name="Ice Cream"
+          data-price="60"
+          data-category="desserts"
+        >
+          <img src="./assets/Ice Creem.jpg" alt="Ice Cream" />
+          <h3>Ice Cream</h3>
+          <p>Vanilla, chocolate, or strawberry</p>
+          <span class="price">₹60</span>
+          <div class="actions">
+            <button class="decrease">-</button>
+            <span class="qty">0</span>
+            <button class="increase">+</button>
+          </div>
+        </div>
+
+        <!-- Drinks -->
+        <div
+          class="card menu-item"
+          data-name="Fresh Juice"
+          data-price="80"
+          data-category="drinks"
+        >
+          <img src="./assets/Fresh Juice.jpg" alt="Fresh Juice" />
+          <h3>Fresh Juice</h3>
+          <p>Orange, apple, or mixed fruit</p>
+          <span class="price">₹80</span>
+          <div class="actions">
+            <button class="decrease">-</button>
+            <span class="qty">0</span>
+            <button class="increase">+</button>
+          </div>
+        </div>
+
+        <div
+          class="card menu-item"
+          data-name="Fresh Juice"
+          data-price="80"
+          data-category="drinks"
+        >
+          <img src="./assets/Drinks/15.jpg" alt="Fresh Juice" />
+          <h3>cappuccino</h3>
+          <p>espresso, steamed milk, and a thick layer of milk foam</p>
+          <span class="price">₹180</span>
+          <div class="actions">
+            <button class="decrease">-</button>
+            <span class="qty">0</span>
+            <button class="increase">+</button>
+          </div>
+        </div>
+
+        <div
+          class="card menu-item"
+          data-name="Fresh Juice"
+          data-price="80"
+          data-category="drinks"
+        >
+          <img src="./assets/Drinks/19.jpg" alt="Fresh Juice" />
+          <h3>white Coraco</h3>
+          <p>adding orange zest and sugar to spirits</p>
+          <span class="price">₹200</span>
+          <div class="actions">
+            <button class="decrease">-</button>
+            <span class="qty">0</span>
+            <button class="increase">+</button>
+          </div>
+        </div>
+
+        <div
+          class="card menu-item"
+          data-name="Fresh Juice"
+          data-price="80"
+          data-category="drinks"
+        >
+          <img src="./assets/Drinks/17.jpg" alt="Fresh Juice" />
+          <h3>Green Tea</h3>
+          <p>Tulsi Green Tea Lemon Ginger Tulsi Green Tea Lemon Ginger</p>
+          <span class="price">₹90</span>
+          <div class="actions">
+            <button class="decrease">-</button>
+            <span class="qty">0</span>
+            <button class="increase">+</button>
+          </div>
+        </div>
+
+        <div
+          class="card menu-item"
+          data-name="Fresh Juice"
+          data-price="80"
+          data-category="drinks"
+        >
+          <img src="./assets/Apple Juice.jfif" alt="Fresh Juice" />
+          <h3>Appel Juice</h3>
+          <p>Apple, or mixed fruit</p>
+          <span class="price">₹100</span>
+          <div class="actions">
+            <button class="decrease">-</button>
+            <span class="qty">0</span>
+            <button class="increase">+</button>
+          </div>
+        </div>
+
+        <!-- Specials -->
+        <div
+          class="card menu-item"
+          data-name="Chef's Special"
+          data-price="350"
+          data-category="specials"
+        >
+          <img src="./assets/Cheff Special.jpg" alt="Chef's Special" />
+          <h3>Chef's Special</h3>
+          <p>Today's unique creation</p>
+          <span class="price">₹350</span>
+          <div class="actions">
+            <button class="decrease">-</button>
+            <span class="qty">0</span>
+            <button class="increase">+</button>
           </div>
         </div>
       </section>
@@ -221,14 +741,39 @@
       </aside>
     </main>
 
-    <!-- Fixed single script (corrected) -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         let cart = [];
         const totalAmountEl = document.getElementById("total-amount");
         const cartList = document.getElementById("cartItems");
+        const menuGrid = document.getElementById("menuGrid");
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const menuItems = document.querySelectorAll(".menu-item");
 
-        // initialize each menu-item's buttons and qty
+        // Filter functionality
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Remove active class from all buttons
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+            // Add active class to clicked button
+            button.classList.add("active");
+
+            const category = button.dataset.category;
+            filterMenuItems(category);
+          });
+        });
+
+        function filterMenuItems(category) {
+          menuItems.forEach((item) => {
+            if (category === "all" || item.dataset.category === category) {
+              item.style.display = "block";
+            } else {
+              item.style.display = "none";
+            }
+          });
+        }
+
+        // Cart functionality
         document.querySelectorAll(".menu-item").forEach((item) => {
           const name = item.dataset.name;
           const price = parseInt(item.dataset.price, 10);
@@ -260,12 +805,10 @@
           }
         });
 
-        // add/update/remove item in cart
         function updateCart(name, price, qty) {
           const existing = cart.find((i) => i.name === name);
 
           if (qty === 0) {
-            // remove if exists
             if (existing) {
               cart = cart.filter((i) => i.name !== name);
             }
@@ -302,6 +845,10 @@
           totalAmountEl.textContent = total;
         }
       });
+
+      function toggleMenu() {
+        document.querySelector(".nav-links").classList.toggle("active");
+      }
     </script>
   </body>
 </html>
