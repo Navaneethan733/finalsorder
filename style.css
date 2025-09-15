@@ -107,7 +107,7 @@ a:hover {
   display: flex;
   gap: 1.5rem;
   list-style: none;
-  transform: translateY(13px);
+  transform: translateY(10px);
 }
 
 .nav-links li a {
