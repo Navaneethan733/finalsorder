@@ -69,16 +69,16 @@
         top: 0;
         left: 0;
         width: 100%;
+        height: 80px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 1rem 2rem;
-        background: rgba(0, 0, 0, 0.9);
+        background: rgb(0, 0, 0);
         color: #fff;
         z-index: 1000;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         transition: all 0.3s ease;
-        /* overflow-x: hidden; */
         overflow: visible;
       }
 
@@ -105,6 +105,7 @@
         display: flex;
         gap: 1.5rem;
         list-style: none;
+        transform: translateY(8px);
       }
 
       .nav-links li a {
@@ -147,10 +148,23 @@
         background: white;
         transition: all 0.3s ease;
       }
+
+      /* Hamburger animation */
+      .hamburger.open span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
       /* Dropdown container */
       .dropdown {
         position: relative;
         display: inline-block;
+        transform: translateY(-4px);
       }
 
       /* Dropdown button */
@@ -166,7 +180,7 @@
       }
 
       .dropbtn:hover {
-        color: #ffcc00;
+        color: #000000;
       }
 
       /* Dropdown content */
@@ -186,13 +200,14 @@
       .dropdown-options a {
         padding: 10px 14px;
         display: block;
-        color: #fff;
+        color: #000000;
         text-decoration: none;
         transition: background 0.3s, color 0.3s;
       }
 
       .dropdown-options a:hover {
-        color: #000000;
+        background: #000000;
+        color: #ffffff;
         border-radius: 6px;
       }
 
@@ -207,6 +222,7 @@
       .dropdown.active .dropdown-options {
         display: block;
       }
+
       /* Header / Hero */
       .hero {
         padding: 56px 20px 32px;
@@ -216,9 +232,8 @@
       .logo-badge {
         display: inline-grid;
         place-items: center;
-        width: 84px;
-        height: 84px;
         width: 150px;
+        height: 84px;
         border-radius: 22px;
         background: black;
         box-shadow: var(--shadow);
@@ -426,6 +441,7 @@
       .list a {
         color: var(--text);
         text-decoration: none;
+        transition: color 0.3s;
       }
       .list a:hover {
         color: var(--accent);
@@ -476,7 +492,6 @@
         text-align: center;
         padding: 36px 20px;
         color: rgb(255, 255, 255);
-        padding: 20px;
         background-color: #00000091;
       }
 
@@ -501,10 +516,21 @@
           transform: none;
         }
       }
+
+      /* Accessibility helper */
+      .sr {
+        position: absolute !important;
+        left: -9999px !important;
+        top: auto !important;
+        width: 1px !important;
+        height: 1px !important;
+        overflow: hidden !important;
+      }
+
       /* Mobile responsive menu */
       @media (max-width: 425px) {
         .nav-links {
-          display: none; /* hide links by default */
+          display: none;
           position: absolute;
           top: 60px;
           right: 0;
@@ -515,40 +541,91 @@
           padding: 1rem 2rem;
           text-align: center;
           transform: translateY(-5px);
+          z-index: 1000;
         }
 
         .nav-links.active {
-          display: flex; /* show when active */
+          display: flex;
         }
 
         .hamburger {
-          display: flex; /* show hamburger on mobile */
+          display: flex !important;
         }
-      }
-      .hamburger.open span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-      }
-      .hamburger.open span:nth-child(2) {
-        opacity: 0;
-      }
-      .hamburger.open span:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
+
+        /* Dropdown specific styles for mobile */
+        .dropdown {
+          width: 100%;
+          text-align: center;
+        }
+
+        .dropbtn {
+          display: block;
+          width: 100%;
+          text-align: center;
+          padding: 12px 0;
+          font-size: 1rem;
+          color: #fff;
+          background: none;
+          border: none;
+          cursor: pointer;
+        }
+
+        .dropdown-options {
+          position: static;
+          display: none;
+          width: 100%;
+          background: rgba(0, 0, 0, 0.8);
+          border-radius: 8px;
+          margin-top: 5px;
+          box-shadow: none;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown.active .dropdown-options {
+          display: block;
+        }
+
+        .dropdown-options a {
+          padding: 12px 20px;
+          text-align: center;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-options a:last-child {
+          border-bottom: none;
+        }
+
+        .dropdown-options a:hover {
+          background: #ffcc00;
+          color: #000;
+        }
+
+        /* Remove hover effects for mobile */
+        .dropdown:hover .dropdown-options {
+          display: none;
+        }
+
+        .dropdown.active .dropbtn {
+          color: #ffcc00;
+        }
       }
     </style>
   </head>
   <body>
     <nav class="navbar">
-      <a class="logo" href="./index.html"
-        ><img
+      <a class="logo" href="./index.html">
+        <img
           src="./Icons/Yellow Stackly.png"
           alt=""
           height="40px"
           width="130px"
-      /></a>
+        />
+      </a>
+
       <ul class="nav-links">
         <li>
-          <div class="dropdown">
-            <a href="./index.html">Home </a>
+          <div class="dropdown" onclick="toggleDropdown(event, this)">
+            <button class="dropbtn">Home </button>
             <div class="dropdown-options">
               <a href="./index.html">Home 1</a>
               <a href="./page2.html">Home 2</a>
@@ -561,6 +638,7 @@
         <li><a href="./contact.html">Contact</a></li>
         <li><a href="./signup.html">Sign Up</a></li>
       </ul>
+
       <div class="hamburger" onclick="toggleMenu()">
         <span></span>
         <span></span>
@@ -579,7 +657,7 @@
       </div>
       <h1>Contact StacklyFoods</h1>
       <p>
-        Questions, feedback, or big catering ideas? Drop us a line and we’ll get
+        Questions, feedback, or big catering ideas? Drop us a line and we'll get
         back faster than a sizzling tandoor. 🍽️
       </p>
     </header>
@@ -817,26 +895,56 @@
       © <span id="y"></span> DelicioFoods · Made with ❤ and spices
     </footer>
 
-    <!-- Small helper for the year (optional; remove if pure HTML/CSS only is required) -->
     <script>
       document.getElementById("y").textContent = new Date().getFullYear();
 
+      function toggleDropdown(event, element) {
+        event.stopPropagation();
+
+        const parent = element.closest(".dropdown");
+
+        // Close all other dropdowns first
+        document.querySelectorAll(".dropdown").forEach((dropdown) => {
+          if (dropdown !== parent) {
+            dropdown.classList.remove("active");
+          }
+        });
+
+        // Toggle the clicked dropdown
+        parent.classList.toggle("active");
+      }
+      document.addEventListener("click", function (event) {
+        if (!event.target.closest(".dropdown")) {
+          document.querySelectorAll(".dropdown").forEach((dropdown) => {
+            dropdown.classList.remove("active");
+          });
+        }
+      });
+
+      // Toggle the clicked dropdown
+      element.classList.toggle("active");
+
+      // Close dropdowns when clicking elsewhere
+      document.addEventListener("click", function (event) {
+        if (!event.target.closest(".dropdown")) {
+          document.querySelectorAll(".dropdown").forEach((dropdown) => {
+            dropdown.classList.remove("active");
+          });
+        }
+      });
+
       function toggleMenu() {
-        document.querySelector(".nav-links").classList.toggle("active");
-        document.querySelector(".hamburger").classList.toggle("open");
+        const navLinks = document.querySelector(".nav-links");
+        const hamburger = document.querySelector(".hamburger");
+
+        navLinks.classList.toggle("active");
+        hamburger.classList.toggle("open");
+
+        // Close all dropdowns when menu is toggled
+        document.querySelectorAll(".dropdown").forEach((dropdown) => {
+          dropdown.classList.remove("active");
+        });
       }
     </script>
-
-    <!-- Accessibility helper -->
-    <style>
-      .sr {
-        position: absolute !important;
-        left: -9999px !important;
-        top: auto !important;
-        width: 1px !important;
-        height: 1px !important;
-        overflow: hidden !important;
-      }
-    </style>
   </body>
 </html>
