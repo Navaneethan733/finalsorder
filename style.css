@@ -158,13 +158,14 @@ a:hover {
 
 /* Search Box */
 .search-box {
-  width: 40rem;
+  width: 29rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 20px;
   padding: 3px 8px;
   background: #ffffff;
+  transform: translateX(-8rem);
 }
 
 .search-box input {
